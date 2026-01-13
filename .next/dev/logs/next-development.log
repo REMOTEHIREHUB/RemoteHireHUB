@@ -1,0 +1,117 @@
+[00:00:00.813] Server  LOG     ✓ Ready in 561ms
+[00:00:02.264] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:16.987] Server  LOG     ✓ Compiled in 720ms
+[00:03:11.017] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:11.144] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <__next_root_layout_boundary__>
+      <SegmentViewNode type="layout" pagePath="layout.tsx">
+        <SegmentTrieNode>
+        <link>
+        <script>
+        <script>
+        <script>
+        <RootLayout>
+          <html lang="en">
+            <head>
+            <body className="inter_5972...">
+              <Header>
+                <header className="sticky top...">
+                  <div className="container ...">
+                    <div className="flex h-20 ...">
+                      <LinkComponent href="/" className="flex items...">
+                        <a className="flex items..." ref={function} onClick={function onClick} ...>
+                          <div className="relative">
+                            <img
+                              alt="RemoteHireHub"
+                              fetchPriority={undefined}
+                              loading={undefined}
+                              width={280}
+                              height={280}
+                              decoding="async"
+                              data-nimg="1"
+                              className="h-16 w-auto md:h-20 transition-transform duration-300 group-hover:scale-105"
+                              style={{color:"transparent"}}
+                              sizes={undefined}
++                             srcSet={"/_next/image?url=%2Fimages%2Ficon.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
+-                             srcSet={"/_next/image?url=%2Fimages%2Flogo.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
++                             src={"/_next/image?url=%2Fimages%2Ficon.png&w=640&q=75"}
+-                             src={"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75"}
+                              ref={function}
+                              onLoad={function onLoad}
+                              onError={function onError}
+                            >
+                            ...
+                          ...
+                      ...
+              ...
+
+[00:03:14.680] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:14.794] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <__next_root_layout_boundary__>
+      <SegmentViewNode type="layout" pagePath="layout.tsx">
+        <SegmentTrieNode>
+        <link>
+        <script>
+        <script>
+        <script>
+        <RootLayout>
+          <html lang="en">
+            <head>
+            <body className="inter_5972...">
+              <Header>
+                <header className="sticky top...">
+                  <div className="container ...">
+                    <div className="flex h-20 ...">
+                      <LinkComponent href="/" className="flex items...">
+                        <a className="flex items..." ref={function} onClick={function onClick} ...>
+                          <div className="relative">
+                            <img
+                              alt="RemoteHireHub"
+                              fetchPriority={undefined}
+                              loading={undefined}
+                              width={280}
+                              height={280}
+                              decoding="async"
+                              data-nimg="1"
+                              className="h-16 w-auto md:h-20 transition-transform duration-300 group-hover:scale-105"
+                              style={{color:"transparent"}}
+                              sizes={undefined}
++                             srcSet={"/_next/image?url=%2Fimages%2Ficon.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
+-                             srcSet={"/_next/image?url=%2Fimages%2Flogo.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
++                             src={"/_next/image?url=%2Fimages%2Ficon.png&w=640&q=75"}
+-                             src={"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75"}
+                              ref={function}
+                              onLoad={function onLoad}
+                              onError={function onError}
+                            >
+                            ...
+                          ...
+                      ...
+              ...
+
+[00:03:19.729] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:22.229] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
