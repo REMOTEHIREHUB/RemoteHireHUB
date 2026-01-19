@@ -1,5 +1,11 @@
-import { supabase } from './client'
+import { createClient } from '@supabase/supabase-js'
 import type { Job, Category, BlogPost } from '@/types'
+
+// Create a simple server-side client
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 // =====================================================
 // JOB QUERIES
@@ -26,7 +32,7 @@ export async function getJobs(filters?: {
   }
 
   if (filters?.search) {
-    query = query.textSearch('title', filters.search)
+    query = query.or(`title.ilike.%${filters.search}%,company.ilike.%${filters.search}%,description.ilike.%${filters.search}%`)
   }
 
   if (filters?.jobType) {
@@ -63,6 +69,8 @@ export async function getJobs(filters?: {
 }
 
 export async function getJobBySlug(slug: string) {
+  console.log('🔍 Looking for job with slug:', slug)
+  
   const { data, error } = await supabase
     .from('jobs')
     .select('*')
@@ -71,10 +79,16 @@ export async function getJobBySlug(slug: string) {
     .single()
 
   if (error) {
-    console.error('Error fetching job by slug:', error)
+    console.error('❌ Error fetching job by slug:', error)
     throw error
   }
 
+  if (!data) {
+    console.error('❌ No job found with slug:', slug)
+    throw new Error('Job not found')
+  }
+
+  console.log('✅ Found job:', data.title)
   return data as Job
 }
 
@@ -95,19 +109,18 @@ export async function getJobById(id: string) {
 }
 
 // =====================================================
-// CATEGORY QUERIES - FIXED TABLE NAME
+// CATEGORY QUERIES
 // =====================================================
 
 export async function getCategories() {
   const { data, error } = await supabase
-    .from('remote_categories')  // ✅ FIXED: Was 'categories', now 'remote_categories'
+    .from('remote_categories')
     .select('*')
     .eq('is_active', true)
     .order('sort_order', { ascending: true })
 
   if (error) {
     console.error('Error fetching categories:', error)
-    // Return empty array instead of throwing, so page still loads
     return []
   }
 
@@ -116,7 +129,7 @@ export async function getCategories() {
 
 export async function getCategoryBySlug(slug: string) {
   const { data, error } = await supabase
-    .from('remote_categories')  // ✅ FIXED: Was 'categories', now 'remote_categories'
+    .from('remote_categories')
     .select('*')
     .eq('slug', slug)
     .eq('is_active', true)
@@ -149,7 +162,7 @@ export async function getBlogPosts(limit?: number) {
 
   if (error) {
     console.error('Error fetching blog posts:', error)
-    return []  // Return empty array so page still loads
+    return []
   }
 
   return data as BlogPost[]

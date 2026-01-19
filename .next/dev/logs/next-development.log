@@ -1,8 +1,35 @@
-[00:00:00.813] Server  LOG     ✓ Ready in 561ms
-[00:00:02.264] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:16.987] Server  LOG     ✓ Compiled in 720ms
-[00:03:11.017] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:11.144] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:00.799] Server  LOG     ✓ Ready in 556ms
+[00:00:01.327] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:00:01.337] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:00:01.737] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:00:01.743] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:00:02.093] Server  LOG     ✅ Found job: "Content Writer"
+[00:00:02.093] Server  LOG     ✅ Found job: "Content Writer"
+[00:00:02.296] Server  LOG     ✅ Found job: "Content Writer"
+[00:00:02.296] Server  LOG     ✅ Found job: "Content Writer"
+[00:00:02.524] Server  ERROR   ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <... variant="outline" size="sm" className=... onClick={function onClick} children=...>
+                                                         ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[00:00:02.627] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:00:02.772] Server  ERROR   ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <... variant="outline" size="sm" className=... onClick={function onClick} children=...>
+                                                         ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[00:00:02.789] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:00:02.891] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:02.939] Server  LOG     ✅ Found job: "Content Writer"
+[00:00:03.025] Browser ERROR   uncaughtError: Error: Event handlers cannot be passed to Client Component props.
+  <... variant="outline" size="sm" className=... onClick={function onClick} children=...>
+                                                         ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+[00:00:03.065] Server  LOG     ✅ Found job: "Content Writer"
+[00:02:22.406] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:02:22.414] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:02:23.178] Server  LOG     ✅ Found job: "Content Writer"
+[00:02:23.178] Server  LOG     ✅ Found job: "Content Writer"
+[00:02:23.724] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:24.632] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -15,103 +42,51 @@ It can also happen if the client has a browser extension installed which messes 
 %s%s https://react.dev/link/hydration-mismatch 
 
   ...
-    <__next_root_layout_boundary__>
-      <SegmentViewNode type="layout" pagePath="layout.tsx">
-        <SegmentTrieNode>
-        <link>
-        <script>
-        <script>
-        <script>
-        <RootLayout>
-          <html lang="en">
-            <head>
-            <body className="inter_5972...">
-              <Header>
-                <header className="sticky top...">
-                  <div className="container ...">
-                    <div className="flex h-20 ...">
-                      <LinkComponent href="/" className="flex items...">
-                        <a className="flex items..." ref={function} onClick={function onClick} ...>
-                          <div className="relative">
-                            <img
-                              alt="RemoteHireHub"
-                              fetchPriority={undefined}
-                              loading={undefined}
-                              width={280}
-                              height={280}
-                              decoding="async"
-                              data-nimg="1"
-                              className="h-16 w-auto md:h-20 transition-transform duration-300 group-hover:scale-105"
-                              style={{color:"transparent"}}
-                              sizes={undefined}
-+                             srcSet={"/_next/image?url=%2Fimages%2Ficon.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
--                             srcSet={"/_next/image?url=%2Fimages%2Flogo.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
-+                             src={"/_next/image?url=%2Fimages%2Ficon.png&w=640&q=75"}
--                             src={"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75"}
-                              ref={function}
-                              onLoad={function onLoad}
-                              onError={function onError}
-                            >
-                            ...
+    <SegmentViewNode type="page" pagePath="remote-job...">
+      <SegmentTrieNode>
+      <JobPage>
+        <div className="min-h-scre...">
+          <div className="container ...">
+            <_c>
+            <div className="grid lg:gr...">
+              <div>
+              <aside className="lg:col-span-1">
+                <div className="sticky top...">
+                  <div>
+                  <Card>
+                    <div className="rounded-lg...">
+                      <div>
+                      <CardContent>
+                        <div className="p-6 pt-0">
                           ...
-                      ...
-              ...
+                            <_c variant="outline" size="sm" className="flex-1" asChild={true}>
+                              <Slot.Slot className={"inline-f..."} ref={null}>
+                                <Slot.SlotClone className={"inline-f..."} ref={null}>
+                                  <a
++                                   href={"https://twitter.com/intent/tweet?text=Content%20Writer%20at%20ContentHub&u..."}
+-                                   href={"https://twitter.com/intent/tweet?text=Content%20Writer%20at%20ContentHub&url="}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={"inline-flex items-center justify-center gap-2 whitespace-nowrap text-..."}
+                                    ref={null}
+                                  >
++                                   Tweet
+                  ...
+    ...
 
-[00:03:14.680] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:14.794] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <__next_root_layout_boundary__>
-      <SegmentViewNode type="layout" pagePath="layout.tsx">
-        <SegmentTrieNode>
-        <link>
-        <script>
-        <script>
-        <script>
-        <RootLayout>
-          <html lang="en">
-            <head>
-            <body className="inter_5972...">
-              <Header>
-                <header className="sticky top...">
-                  <div className="container ...">
-                    <div className="flex h-20 ...">
-                      <LinkComponent href="/" className="flex items...">
-                        <a className="flex items..." ref={function} onClick={function onClick} ...>
-                          <div className="relative">
-                            <img
-                              alt="RemoteHireHub"
-                              fetchPriority={undefined}
-                              loading={undefined}
-                              width={280}
-                              height={280}
-                              decoding="async"
-                              data-nimg="1"
-                              className="h-16 w-auto md:h-20 transition-transform duration-300 group-hover:scale-105"
-                              style={{color:"transparent"}}
-                              sizes={undefined}
-+                             srcSet={"/_next/image?url=%2Fimages%2Ficon.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
--                             srcSet={"/_next/image?url=%2Fimages%2Flogo.png&w=384&q=75 1x, /_next/image?url=%2Fimage..."}
-+                             src={"/_next/image?url=%2Fimages%2Ficon.png&w=640&q=75"}
--                             src={"/_next/image?url=%2Fimages%2Flogo.png&w=640&q=75"}
-                              ref={function}
-                              onLoad={function onLoad}
-                              onError={function onError}
-                            >
-                            ...
-                          ...
-                      ...
-              ...
-
-[00:03:19.729] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:22.229] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:39.499] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:02:39.507] Server  LOG     🔍 Looking for job with slug: "content-writer-contenthub"
+[00:02:39.729] Server  LOG     ✅ Found job: "Content Writer"
+[00:02:39.729] Server  LOG     ✅ Found job: "Content Writer"
+[00:02:43.976] Server  LOG     🔍 Looking for job with slug: "data-analyst-dataco"
+[00:02:43.984] Server  LOG     🔍 Looking for job with slug: "data-analyst-dataco"
+[00:02:44.249] Server  LOG     ✅ Found job: "Data Analyst"
+[00:02:44.249] Server  LOG     ✅ Found job: "Data Analyst"
+[00:02:47.343] Server  LOG     🔍 Looking for job with slug: "customer-support-specialist-supportpro"
+[00:02:47.351] Server  LOG     🔍 Looking for job with slug: "customer-support-specialist-supportpro"
+[00:02:47.560] Server  LOG     ✅ Found job: "Customer Support Specialist"
+[00:02:47.560] Server  LOG     ✅ Found job: "Customer Support Specialist"
+[00:02:51.442] Server  LOG     🔍 Looking for job with slug: "customer-support-specialist-supportpro"
+[00:02:51.449] Server  LOG     🔍 Looking for job with slug: "customer-support-specialist-supportpro"
+[00:02:51.843] Server  LOG     ✅ Found job: "Customer Support Specialist"
+[00:02:51.844] Server  LOG     ✅ Found job: "Customer Support Specialist"

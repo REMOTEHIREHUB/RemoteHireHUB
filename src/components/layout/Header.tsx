@@ -47,7 +47,7 @@ export function Header() {
                   <Link href="/remote-software-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">Software Dev</Link>
                   <Link href="/remote-design-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">Design</Link>
                   <Link href="/remote-marketing-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">Marketing</Link>
-                  <Link href="/remote-jobs/all" className="block px-3 py-2 rounded hover:bg-gray-50 text-blue-600 font-medium">View All →</Link>
+                  <Link href="/remote-jobs" className="block px-3 py-2 rounded hover:bg-gray-50 text-blue-600 font-medium">View All →</Link>
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export function Header() {
             </button>
             
             {/* Search Jobs Button with Modal Trigger */}
-            <Button 
+            <Button onClick={() => window.location.href = '/'} 
               size="lg" 
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2.5 h-11 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95"
             >
