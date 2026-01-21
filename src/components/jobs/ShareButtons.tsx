@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Check, Copy } from 'lucide-react'
 
 interface ShareButtonsProps {
@@ -11,17 +11,21 @@ interface ShareButtonsProps {
 
 export function ShareButtons({ jobTitle, jobCompany }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
+  const [currentUrl, setCurrentUrl] = useState('')
+
+  // Only get URL on client side to avoid hydration mismatch
+  useEffect(() => {
+    setCurrentUrl(window.location.href)
+  }, [])
 
   const handleCopyLink = () => {
-    if (typeof window !== 'undefined') {
-      navigator.clipboard.writeText(window.location.href)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
+    navigator.clipboard.writeText(currentUrl)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   const shareText = encodeURIComponent(`${jobTitle} at ${jobCompany}`)
-  const shareUrl = typeof window !== 'undefined' ? encodeURIComponent(window.location.href) : ''
+  const shareUrl = encodeURIComponent(currentUrl)
 
   return (
     <div className="flex gap-2">
@@ -30,6 +34,7 @@ export function ShareButtons({ jobTitle, jobCompany }: ShareButtonsProps) {
         size="sm"
         className="flex-1"
         onClick={handleCopyLink}
+        disabled={!currentUrl}
       >
         {copied ? (
           <>
@@ -50,7 +55,7 @@ export function ShareButtons({ jobTitle, jobCompany }: ShareButtonsProps) {
         asChild
       >
         <a 
-          href={`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`}
+          href={currentUrl ? `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}` : '#'}
           target="_blank"
           rel="noopener noreferrer"
         >
