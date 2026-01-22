@@ -97,6 +97,14 @@ export async function scrapeRemoteOK(): Promise<{
         // Clean description
         const description = cleanHtml(job.description)
         
+        // ✅ FIX: Build correct URL
+        // job.url comes as "/remote-jobs/..."
+        const sourceUrl = job.url.startsWith('http') 
+          ? job.url 
+          : `https://remoteok.com${job.url}`
+        
+        console.log(`🔗 Source URL: ${sourceUrl}`) // Debug log
+        
         // Insert job
         await insertJob({
           job_id: generateJobId(job.id, 'remoteok'),
@@ -114,7 +122,7 @@ export async function scrapeRemoteOK(): Promise<{
           salary_currency: salary.currency,
           description: description,
           source_platform: 'RemoteOK',
-          source_url: `https://remoteok.com${job.url}`,
+          source_url: sourceUrl, // ✅ Fixed URL
           posted_date: new Date(job.date).toISOString(),
           slug: slug
         })
