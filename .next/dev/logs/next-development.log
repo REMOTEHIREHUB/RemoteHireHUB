@@ -1,171 +1,349 @@
-[00:00:01.648] Server  LOG     ✓ Ready in 1220ms
-[00:01:56.554] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:12.024] Server  LOG     ✓ Compiled in 1335ms
-[00:02:13.320] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:13.659] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-https://react.dev/link/hydration-mismatch
-
-  ...
-    <RenderFromTemplateContext>
-      <ScrollAndFocusHandler segmentPath={[...]}>
-        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
-          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
-            <LoadingBoundary name="/" loading={null}>
-              <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
-                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
-                  <RedirectBoundary>
-                    <RedirectErrorBoundary router={{...}}>
-                      <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} ...>
-                        <SegmentViewNode type="page" pagePath="page.tsx">
-                          <SegmentTrieNode>
-                          <HomePage>
-+                           <div>
--                           <section
--                             className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 py-24 overflow-..."
--                           >
-                        ...
-                      ...
-          ...
-    ...
-
-[00:02:25.999] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:36.939] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:02:36.949] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:02:37.746] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:02:37.746] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:58.033] Server  LOG       Reload env: .env.local
-[00:19:59.134] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.187] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.192] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.206] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.296] Server  LOG     ✓ Compiled in 655ms
-[00:19:59.305] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:19:59.375] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.389] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.392] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.397] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.461] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.479] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.641] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.660] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.664] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.675] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.781] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.791] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:19:59.794] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:19:59.800] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:01.198] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:01.198] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:01.840] Server  LOG       Reload env: .env.local
-[00:20:02.366] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:43.519] Server  LOG       Reload env: .env.local
-[00:20:43.902] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:43.920] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:43.921] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:43.926] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:43.982] Server  LOG     ✓ Compiled in 162ms
-[00:20:43.995] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:20:44.058] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.087] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.089] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:44.092] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:44.154] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.166] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.320] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.329] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.333] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:44.339] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:44.414] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.425] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:44.429] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:44.433] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:45.359] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:45.360] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:46.041] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:46.542] Server  LOG       Reload env: .env.local
-[00:20:46.740] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:46.754] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:46.756] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:46.763] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:46.820] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:20:46.859] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:46.866] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:46.870] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:46.876] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:46.989] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:46.996] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:47.020] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:47.027] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:47.029] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:47.035] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:47.202] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:47.217] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:47.219] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:47.226] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:47.292] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:47.293] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:47.780] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:51.579] Server  LOG       Reload env: .env.local
-[00:20:51.798] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:51.814] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:51.817] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:51.822] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:51.876] Server  LOG     ✓ Compiled in 103ms
-[00:20:51.883] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:20:51.926] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:51.941] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:51.944] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:51.947] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:52.018] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:52.030] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:52.061] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:52.072] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:52.074] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:52.080] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:52.265] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:52.276] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:52.279] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:52.286] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:52.913] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:52.913] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:53.423] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:20:54.752] Server  LOG       Reload env: .env.local
-[00:20:54.966] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:54.976] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:54.979] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:54.987] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.039] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:20:55.151] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.159] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.162] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.169] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.231] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.237] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.560] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.569] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.571] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.578] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.631] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.637] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.639] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.643] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.703] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.714] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.716] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.722] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.776] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.776] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.874] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.896] Server  LOG     🔍 Looking for job with slug: "senior-account-executive-caylent"
-[00:20:55.899] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:55.906] Server  LOG     ✅ Found job: "Senior Account Executive"
-[00:20:56.359] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.732] Server  LOG     ✓ Ready in 1308ms
+[00:00:07.190] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:15.052] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[00:00:15.071] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[00:00:16.240] Server  LOG     ✅ Found job: "Customer Support Technician"
+[00:00:16.240] Server  LOG     ✅ Found job: "Customer Support Technician"
+[00:00:39.956] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[00:00:39.972] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[00:00:40.778] Server  LOG     ✅ Found job: "Customer Support Technician"
+[00:00:40.779] Server  LOG     ✅ Found job: "Customer Support Technician"
+[00:27:45.293] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[00:27:45.356] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[00:27:47.080] Server  LOG     ✅ Found job: "Customer Support Technician"
+[00:27:47.081] Server  LOG     ✅ Found job: "Customer Support Technician"
+[00:59:10.149] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:30.376] Server  LOG     🚀 Starting job scraping...
+[00:59:30.378] Server  LOG     🔍 Starting RemoteOK scrape...
+[00:59:31.133] Server  LOG     📊 Found 95 jobs from RemoteOK
+[00:59:32.581] Server  LOG     ⏭️  Skipping duplicate: Customer Support Technician
+[00:59:33.328] Server  LOG     ⏭️  Skipping duplicate: Customer Service Representative
+[00:59:33.572] Server  LOG     ⏭️  Skipping duplicate: Junior Customer Support Specialist AI SaaS Support
+[00:59:33.790] Server  LOG     ⏭️  Skipping duplicate: Backend Developer
+[00:59:34.040] Server  LOG     ⏭️  Skipping duplicate: Technical Project Manager
+[00:59:34.828] Server  LOG     ⏭️  Skipping duplicate: Growth Marketing Manager
+[00:59:35.065] Server  LOG     ⏭️  Skipping duplicate: Product Line Manager Lending Solutions
+[00:59:35.324] Server  LOG     ⏭️  Skipping duplicate: iOS Software Engineer
+[00:59:35.818] Server  LOG     ⏭️  Skipping duplicate: Senior Workforce Management Analyst
+[00:59:36.008] Server  LOG     ⏭️  Skipping duplicate: Senior Full Stack Software Engineer
+[00:59:36.223] Server  LOG     ⏭️  Skipping duplicate: Revenue Operations Analyst
+[00:59:36.667] Server  LOG     ⏭️  Skipping duplicate: Software Engineer Core Platform
+[00:59:37.024] Server  LOG     ⏭️  Skipping duplicate: Account Manager Utilities Telecom Rail
+[00:59:37.200] Server  LOG     ⏭️  Skipping duplicate: CUSTOMER SUCCESS MANAGER
+[00:59:37.406] Server  LOG     ⏭️  Skipping duplicate: Product Inventor Engineer @ Fun Ecom Co
+[00:59:37.572] Server  LOG     ⏭️  Skipping duplicate: Ecosystem Operation Manager
+[00:59:38.201] Server  LOG     ⏭️  Skipping duplicate: HR Coordinator
+[00:59:38.407] Server  LOG     ⏭️  Skipping duplicate: Software Development Engineer III
+[00:59:38.629] Server  LOG     ⏭️  Skipping duplicate: Crypto Trading Trainee Market Analysis Associate
+[00:59:38.824] Server  LOG     ⏭️  Skipping duplicate: Fi Senior Embedded Software Engineer
+[00:59:39.133] Server  LOG     ⏭️  Skipping duplicate: Principal Engineer Pulumi Neo
+[00:59:39.656] Server  LOG     ⏭️  Skipping duplicate: Staff Software Engineer DevProd
+[00:59:39.871] Server  LOG     ⏭️  Skipping duplicate: Senior Site Reliability Engineer Infrastructure
+[00:59:40.057] Server  LOG     ⏭️  Skipping duplicate: Account Executive
+[00:59:40.290] Server  LOG     ⏭️  Skipping duplicate: Account Executive Italian Speaking
+[00:59:40.488] Server  LOG     ⏭️  Skipping duplicate: Field Sales Representative
+[00:59:40.763] Server  LOG     ⏭️  Skipping duplicate: Senior Product Marketing Manager
+[00:59:41.194] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-senior-software-engineer-data-freshpaint-1129653
+[00:59:41.475] Server  ERROR   Error inserting job: {}
+[00:59:41.475] Server  ERROR   ❌ Error processing job Senior Software Engineer Data: {}
+[00:59:41.672] Server  LOG     ⏭️  Skipping duplicate: Account Manager
+[00:59:41.843] Server  LOG     ⏭️  Skipping duplicate: Insurance Follow Up Specialist Outpatient Infusion Therapy
+[00:59:42.099] Server  LOG     ⏭️  Skipping duplicate: Senior Full Stack Software Engineer CRM
+[00:59:42.735] Server  LOG     ⏭️  Skipping duplicate: Healthcare Data Analyst
+[00:59:42.933] Server  LOG     ⏭️  Skipping duplicate: Experienced Quantitative Trader
+[00:59:43.089] Server  LOG     ⏭️  Skipping duplicate: Customer Success Manager Circle Plus
+[00:59:43.280] Server  LOG     ⏭️  Skipping duplicate: Principal Network Integration Engineer
+[00:59:43.623] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer Java
+[00:59:43.826] Server  LOG     ⏭️  Skipping duplicate: Senior Infrastructure Engineer
+[00:59:44.023] Server  LOG     ⏭️  Skipping duplicate: Senior Full Stack Engineer
+[00:59:44.236] Server  LOG     ⏭️  Skipping duplicate: Strategic Partnerships Account Manager
+[00:59:44.437] Server  LOG     ⏭️  Skipping duplicate: Work From Home Hotel Reservations Customer Service
+[00:59:44.651] Server  LOG     ⏭️  Skipping duplicate: Client Outreach Onboarding Coordinator
+[00:59:44.857] Server  LOG     ⏭️  Skipping duplicate: Temporary Payroll Tax Accountant
+[00:59:45.265] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-client-retention-specialist-beyond-finance-1129638
+[00:59:45.477] Server  ERROR   Error inserting job: {}
+[00:59:45.478] Server  ERROR   ❌ Error processing job Client Retention Specialist: {}
+[00:59:45.673] Server  LOG     ⏭️  Skipping duplicate: Senior Cloud Infrastructure Engineer Kubernetes
+[00:59:45.841] Server  LOG     ⏭️  Skipping duplicate: Senior Sales Engineer West
+[00:59:46.023] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer II
+[00:59:47.013] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-junior-customer-support-specialist-ai-saas-support-1129633
+[00:59:47.235] Server  ERROR   Error inserting job: {}
+[00:59:47.236] Server  ERROR   ❌ Error processing job Junior Customer Support Specialist AI SaaS Support: {}
+[00:59:47.521] Server  LOG     ⏭️  Skipping duplicate: Director of Engineering Founding Engineer India
+[00:59:48.105] Server  LOG     ⏭️  Skipping duplicate: Sales Development Representative
+[00:59:48.441] Server  LOG     ⏭️  Skipping duplicate: Account Executive Ohio
+[00:59:48.851] Server  LOG     ⏭️  Skipping duplicate: Senior Marketing Manager Paid Ads
+[00:59:49.062] Server  LOG     ⏭️  Skipping duplicate: Client Retention Specialist
+[00:59:49.774] Server  LOG     ⏭️  Skipping duplicate: Social Media Manager
+[00:59:49.982] Server  LOG     ⏭️  Skipping duplicate: Security Infrastructure Engineer
+[00:59:50.167] Server  LOG     ⏭️  Skipping duplicate: Senior Account Executive
+[00:59:50.354] Server  LOG     ⏭️  Skipping duplicate: Staff Security Engineer
+[00:59:50.695] Server  LOG     ⏭️  Skipping duplicate: AWS Technical Architect
+[00:59:51.002] Server  LOG     ⏭️  Skipping duplicate: Seeking Professionals for a New Approach an Old Industry
+[00:59:51.412] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer SELECT by DoiT
+[00:59:51.621] Server  LOG     ⏭️  Skipping duplicate: Staff Embedded Systems Engineer
+[00:59:51.793] Server  LOG     ⏭️  Skipping duplicate: Senior eCommerce Manager
+[00:59:51.992] Server  LOG     ⏭️  Skipping duplicate: Software Engineer Full Stack
+[00:59:52.263] Server  LOG     ⏭️  Skipping duplicate: AWS Solution Architect
+[00:59:52.675] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-aws-technical-architect-neuraflash-part-of-accenture-1129616
+[00:59:52.877] Server  ERROR   Error inserting job: {}
+[00:59:52.879] Server  ERROR   ❌ Error processing job AWS Technical Architect: {}
+[00:59:53.077] Server  LOG     ⏭️  Skipping duplicate: Staff Software Engineer Cloud Infrastructure
+[00:59:53.485] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-security-infrastructure-engineer-tailscale-1129614
+[00:59:53.713] Server  ERROR   Error inserting job: {}
+[00:59:53.715] Server  ERROR   ❌ Error processing job Security Infrastructure Engineer: {}
+[00:59:53.917] Server  LOG     ⏭️  Skipping duplicate: Implementation Specialist Spanish Speaking
+[00:59:54.100] Server  LOG     ⏭️  Skipping duplicate: Software Engineering Intern
+[00:59:54.296] Server  LOG     ⏭️  Skipping duplicate: Principal Product Manager
+[00:59:54.487] Server  LOG     ⏭️  Skipping duplicate: Product Manager Automotive Vertical
+[00:59:54.704] Server  LOG     ⏭️  Skipping duplicate: Software Engineer I
+[00:59:54.899] Server  LOG     ⏭️  Skipping duplicate: Machine Learning Engineer
+[00:59:55.127] Server  LOG     ⏭️  Skipping duplicate: Clinical Operations Specialist
+[00:59:55.300] Server  LOG     ⏭️  Skipping duplicate: Senior Machine Learning Engineer
+[00:59:55.504] Server  LOG     ⏭️  Skipping duplicate: VP of Engineering Institutional Trading
+[00:59:55.712] Server  LOG     ⏭️  Skipping duplicate: Customer Solutions Engineer
+[00:59:55.916] Server  LOG     ⏭️  Skipping duplicate: Account Executive SMB India
+[00:59:56.118] Server  LOG     ⏭️  Skipping duplicate: Senior Manager Revenue Operations
+[00:59:56.344] Server  LOG     ⏭️  Skipping duplicate: Sales Development Representative
+[00:59:56.531] Server  LOG     ⏭️  Skipping duplicate: Staff Developer Advocate Platform Engineering
+[00:59:56.727] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer Analytics
+[00:59:57.384] Server  LOG     ⏭️  Skipping duplicate: AI Finance Tutor Quantitative Finance
+[00:59:57.765] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer Training
+[00:59:58.275] Server  LOG     ⏭️  Skipping duplicate: Machine Learning Engineer 3D Vision&Localization
+[00:59:58.483] Server  LOG     ⏭️  Skipping duplicate: Senior Quality Engineer
+[00:59:58.657] Server  LOG     ⏭️  Skipping duplicate: Character Artist Clothing NBA 2K
+[00:59:59.303] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-character-artist-clothing-nba-2k-visual-concepts-1129590
+[00:59:59.708] Server  ERROR   Error inserting job: {}
+[00:59:59.709] Server  ERROR   ❌ Error processing job Character Artist Clothing NBA 2K: {}
+[01:00:00.016] Server  LOG     ⏭️  Skipping duplicate: Manager Sales Development
+[01:00:00.321] Server  LOG     ⏭️  Skipping duplicate: Salesforce Experience Architect AI and Agentforce
+[01:00:00.631] Server  LOG     ⏭️  Skipping duplicate: Associate Customer Success Manager Colombia
+[01:00:00.935] Server  LOG     ⏭️  Skipping duplicate: Marketing Operations Production Specialist
+[01:00:01.253] Server  LOG     ⏭️  Skipping duplicate: Supply Chain Analyst Labor Planning
+[01:00:01.651] Server  LOG     ⏭️  Skipping duplicate: Enterprise Account Executive
+[01:00:01.863] Server  LOG     ⏭️  Skipping duplicate: Account Executive Advisor
+[01:00:02.046] Server  LOG     ⏭️  Skipping duplicate: Account Executive Level 2
+[01:00:02.248] Server  LOG     ✨ RemoteOK scrape complete! Inserted 0/95 jobs
+[01:00:02.249] Server  LOG     ✅ Scraping complete! 0/95 jobs inserted
+[01:01:43.294] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:06:09.931] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:06:12.682] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:06:28.322] Server  LOG     🚀 Starting job scraping from 3 sources...
+[01:06:28.322] Server  LOG     🔍 Starting RemoteOK scrape...
+[01:06:28.335] Server  LOG     🔍 Starting We Work Remotely scrape...
+[01:06:28.338] Server  LOG     🔍 Starting Remotive scrape...
+[01:06:29.077] Server  LOG     📊 Found 95 jobs from RemoteOK
+[01:06:29.163] Server  LOG     📊 Found 36 jobs from We Work Remotely
+[01:06:29.433] Server  LOG     📊 Found 21 jobs from Remotive
+[01:06:29.751] Server  LOG     ⏭️  Skipping duplicate: Customer Support Technician
+[01:06:30.261] Server  LOG     ✅ Inserted: Software engineer at Sticker Mule
+[01:06:30.324] Server  LOG     ⏭️  Skipping duplicate: Customer Service Representative
+[01:06:30.532] Server  LOG     ⏭️  Skipping duplicate: Junior Customer Support Specialist AI SaaS Support
+[01:06:30.730] Server  LOG     ✅ Inserted: Product Inventor / Engineer @ Fun Ecom Co | Great People & Flexible Hours at JLS Trading Co
+[01:06:30.751] Server  LOG     ⏭️  Skipping duplicate: Backend Developer
+[01:06:31.010] Server  LOG     ⏭️  Skipping duplicate: Technical Project Manager
+[01:06:31.058] Server  LOG     ✅ Inserted: Senior Software Engineer at fonio
+[01:06:31.297] Server  LOG     ⏭️  Skipping duplicate: Growth Marketing Manager
+[01:06:31.686] Server  LOG     ⏭️  Skipping duplicate: Product Line Manager Lending Solutions
+[01:06:31.695] Server  LOG     ✅ Inserted: Senior DevOps Engineer at Marketerx
+[01:06:32.000] Server  LOG     ⏭️  Skipping duplicate: iOS Software Engineer
+[01:06:32.003] Server  LOG     ✅ Inserted: Applied AI Engineer at SuperPlane Inc.
+[01:06:32.303] Server  LOG     ⏭️  Skipping duplicate: Senior Workforce Management Analyst
+[01:06:32.607] Server  LOG     ⏭️  Skipping duplicate: Senior Full Stack Software Engineer
+[01:06:32.915] Server  LOG     ⏭️  Skipping duplicate: Revenue Operations Analyst
+[01:06:32.918] Server  LOG     ✅ Inserted: Passionate Full-Stack Engineer (SEO-Focused Company) at SerpNames
+[01:06:32.921] Server  LOG     ✅ Inserted: Client Support Specialist at Clipboard Health
+[01:06:33.214] Server  LOG     ⏭️  Skipping duplicate: Software Engineer Core Platform
+[01:06:33.421] Server  LOG     ⏭️  Skipping duplicate: Account Manager Utilities Telecom Rail
+[01:06:33.612] Server  LOG     ⏭️  Skipping duplicate: CUSTOMER SUCCESS MANAGER
+[01:06:33.632] Server  LOG     ✅ Inserted: Senior Independent Software Developer at A.Team
+[01:06:33.635] Server  LOG     ✅ Inserted: Senior Fullstack Developer (Python) at Proxify AB
+[01:06:33.857] Server  LOG     ⏭️  Skipping duplicate: Product Inventor Engineer @ Fun Ecom Co
+[01:06:34.074] Server  LOG     ⏭️  Skipping duplicate: Ecosystem Operation Manager
+[01:06:34.257] Server  LOG     ✅ Inserted: Senior Fullstack Developer (Vue.js &amp; Python) at Proxify AB
+[01:06:34.273] Server  LOG     ⏭️  Skipping duplicate: HR Coordinator
+[01:06:34.297] Server  LOG     ✅ Inserted: Senior Independent AI Engineer / Architect at A.Team
+[01:06:34.461] Server  LOG     ⏭️  Skipping duplicate: Software Development Engineer III
+[01:06:34.660] Server  LOG     ⏭️  Skipping duplicate: Crypto Trading Trainee Market Analysis Associate
+[01:06:34.855] Server  LOG     ⏭️  Skipping duplicate: Fi Senior Embedded Software Engineer
+[01:06:34.872] Server  ERROR   Error inserting job: {}
+[01:06:34.873] Server  ERROR   ❌ Error processing job Tech Lead Full-Stack Rails Engineer: {}
+[01:06:34.877] Server  LOG     ✅ Inserted: Full Stack Engineer - Ruby on Rails and React at Planning Center
+[01:06:35.051] Server  LOG     ⏭️  Skipping duplicate: Principal Engineer Pulumi Neo
+[01:06:35.246] Server  LOG     ⏭️  Skipping duplicate: Staff Software Engineer DevProd
+[01:06:35.450] Server  LOG     ⏭️  Skipping duplicate: Senior Site Reliability Engineer Infrastructure
+[01:06:35.478] Server  LOG     ✅ Inserted: Senior PHP Full-stack Developer at Lemon.io
+[01:06:35.640] Server  LOG     ⏭️  Skipping duplicate: Account Executive
+[01:06:35.844] Server  LOG     ⏭️  Skipping duplicate: Account Executive Italian Speaking
+[01:06:36.028] Server  LOG     ⏭️  Skipping duplicate: Field Sales Representative
+[01:06:36.035] Server  LOG     ✅ Inserted: Tech Lead Databricks Data Engineer at Mitre Media
+[01:06:36.057] Server  LOG     ✅ Inserted: Senior Full-stack Developer at Lemon.io
+[01:06:36.202] Server  LOG     ⏭️  Skipping duplicate: Senior Product Marketing Manager
+[01:06:37.125] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-senior-software-engineer-data-freshpaint-1129653
+[01:06:37.128] Server  LOG     ✅ Inserted: Software Engineer C++ (Senior) at Apexver
+[01:06:37.429] Server  LOG     ✅ Inserted: Senior Software Engineer Data at Freshpaint
+[01:06:37.728] Server  LOG     ⏭️  Skipping duplicate: Account Manager
+[01:06:37.730] Server  LOG     ✅ Inserted: Senior Software Engineer (.NET, Node.js, React) at OpsFlow
+[01:06:38.038] Server  LOG     ⏭️  Skipping duplicate: Insurance Follow Up Specialist Outpatient Infusion Therapy
+[01:06:38.051] Server  LOG     ✅ Inserted: Senior Front-End Developer- Analytics & UX Focused (Remote) at Actionable.co
+[01:06:38.447] Server  LOG     ⏭️  Skipping duplicate: Senior Full Stack Software Engineer CRM
+[01:06:38.651] Server  LOG     ⏭️  Skipping duplicate: Healthcare Data Analyst
+[01:06:38.685] Server  LOG     ✅ Inserted: Full Stack Developer at Karmah
+[01:06:38.836] Server  LOG     ⏭️  Skipping duplicate: Experienced Quantitative Trader
+[01:06:38.865] Server  LOG     ✅ Inserted: 🇫🇷 Senior Site Reliability Engineer (SRE) - Cloud at Scalingo
+[01:06:39.039] Server  LOG     ⏭️  Skipping duplicate: Customer Success Manager Circle Plus
+[01:06:39.368] Server  LOG     ⏭️  Skipping duplicate: Principal Network Integration Engineer
+[01:06:39.371] Server  LOG     ✅ Inserted: Sr Web Applications Developer - eCommerce at DexCom
+[01:06:39.619] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer Java
+[01:06:39.631] Server  LOG     ✅ Inserted: Senior Software Engineer, Global Contractor at Jump
+[01:06:39.979] Server  LOG     ⏭️  Skipping duplicate: Senior Infrastructure Engineer
+[01:06:40.289] Server  LOG     ⏭️  Skipping duplicate: Senior Full Stack Engineer
+[01:06:40.296] Server  LOG     ✅ Inserted: Senior Web Application Architect at DevSelect
+[01:06:40.604] Server  LOG     ⏭️  Skipping duplicate: Strategic Partnerships Account Manager
+[01:06:40.621] Server  LOG     ✅ Inserted: AI Trainer at Anuttacon
+[01:06:41.006] Server  LOG     ⏭️  Skipping duplicate: Work From Home Hotel Reservations Customer Service
+[01:06:41.211] Server  LOG     ⏭️  Skipping duplicate: Client Outreach Onboarding Coordinator
+[01:06:41.233] Server  LOG     ✅ Inserted: Senior Web Applications Developer at Vituity
+[01:06:41.588] Server  LOG     ⏭️  Skipping duplicate: Temporary Payroll Tax Accountant
+[01:06:41.597] Server  LOG     ✅ Inserted: Quantitative Research Team Lead (Completed) at Apexver
+[01:06:42.246] Server  LOG     ✅ Inserted: Sdet at Cotiviti
+[01:06:42.249] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-client-retention-specialist-beyond-finance-1129638
+[01:06:42.546] Server  LOG     ✅ Inserted: Office Assistant at Coalition Technologies 
+[01:06:42.549] Server  ERROR   Error inserting job: {}
+[01:06:42.550] Server  ERROR   ❌ Error processing job Client Retention Specialist: {}
+[01:06:42.848] Server  LOG     ⏭️  Skipping duplicate: Senior Cloud Infrastructure Engineer Kubernetes
+[01:06:43.161] Server  LOG     ⏭️  Skipping duplicate: Senior Sales Engineer West
+[01:06:43.176] Server  LOG     ✅ Inserted: .Net Junior-level Software Engineer at Edgewater Federal Solutions
+[01:06:43.574] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer II
+[01:06:43.581] Server  LOG     ✅ Inserted: Executive Assistant & Accountability Partner (Full‑Time, Remote, ET Hours) at N/A
+[01:06:43.971] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-junior-customer-support-specialist-ai-saas-support-1129633
+[01:06:44.016] Server  LOG     ✅ Inserted: Ba/Qa at Applied Imagination
+[01:06:44.169] Server  ERROR   Error inserting job: {}
+[01:06:44.169] Server  ERROR   ❌ Error processing job Junior Customer Support Specialist AI SaaS Support: {}
+[01:06:44.252] Server  LOG     ✅ Inserted: iOS Developer at nooro
+[01:06:44.357] Server  LOG     ⏭️  Skipping duplicate: Director of Engineering Founding Engineer India
+[01:06:44.562] Server  LOG     ⏭️  Skipping duplicate: Sales Development Representative
+[01:06:44.572] Server  LOG     ✅ Inserted: PHP Web Application Developer at EBG
+[01:06:44.750] Server  LOG     ⏭️  Skipping duplicate: EBG: PHP Web Application Developer
+[01:06:44.779] Server  LOG     ⏭️  Skipping duplicate: Account Executive Ohio
+[01:06:44.843] Server  LOG     ✅ Inserted: Inside Sales Contractor at Credit Wellness, LLC
+[01:06:44.950] Server  LOG     ⏭️  Skipping duplicate: Senior Marketing Manager Paid Ads
+[01:06:45.151] Server  LOG     ⏭️  Skipping duplicate: Client Retention Specialist
+[01:06:45.342] Server  LOG     ⏭️  Skipping duplicate: Social Media Manager
+[01:06:45.347] Server  LOG     ✅ Inserted: Backend / Web Application Developer (Cloud &amp; SaaS) at ImFusion
+[01:06:45.408] Server  LOG     ✅ Inserted: 🇩🇪 EU Freelance Customer Advisor – Inbound Mobile / Prepaid at hey contact heroes GmbH
+[01:06:45.546] Server  LOG     ⏭️  Skipping duplicate: Security Infrastructure Engineer
+[01:06:45.720] Server  LOG     ⏭️  Skipping duplicate: Senior Account Executive
+[01:06:46.124] Server  LOG     ⏭️  Skipping duplicate: Staff Security Engineer
+[01:06:46.133] Server  LOG     ✅ Inserted: Freelance Writer at IAPWE
+[01:06:46.339] Server  LOG     ⏭️  Skipping duplicate: AWS Technical Architect
+[01:06:46.401] Server  LOG     ✅ Inserted: Project Manager - Latin America at Azumo
+[01:06:46.534] Server  LOG     ⏭️  Skipping duplicate: Seeking Professionals for a New Approach an Old Industry
+[01:06:46.698] Server  LOG     ✅ Inserted: Copywriter at Coalition Technologies 
+[01:06:46.716] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer SELECT by DoiT
+[01:06:46.905] Server  LOG     ⏭️  Skipping duplicate: Staff Embedded Systems Engineer
+[01:06:47.022] Server  LOG     ✅ Inserted: Full Stack Product Engineer at Jiga
+[01:06:47.077] Server  LOG     ⏭️  Skipping duplicate: Senior eCommerce Manager
+[01:06:47.267] Server  LOG     ✅ Inserted: Senior Amazon Brand Manager at GNO Partners
+[01:06:47.270] Server  LOG     ⏭️  Skipping duplicate: Software Engineer Full Stack
+[01:06:47.451] Server  LOG     ✨ Remotive scrape complete! Inserted 20/21 jobs
+[01:06:47.461] Server  LOG     ⏭️  Skipping duplicate: AWS Solution Architect
+[01:06:47.610] Server  LOG     ✅ Inserted: Senior Rails developer at WodBoard
+[01:06:47.838] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-aws-technical-architect-neuraflash-part-of-accenture-1129616
+[01:06:48.032] Server  ERROR   Error inserting job: {}
+[01:06:48.033] Server  ERROR   ❌ Error processing job AWS Technical Architect: {}
+[01:06:48.190] Server  LOG     ✅ Inserted: Sr. Software Engineer II at KFC
+[01:06:48.210] Server  LOG     ⏭️  Skipping duplicate: Staff Software Engineer Cloud Infrastructure
+[01:06:48.752] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-security-infrastructure-engineer-tailscale-1129614
+[01:06:48.943] Server  ERROR   Error inserting job: {}
+[01:06:48.944] Server  ERROR   ❌ Error processing job Security Infrastructure Engineer: {}
+[01:06:48.952] Server  LOG     ✅ Inserted: Senior Full Stack Javascript Engineer (Remote, 4-day week) at Stack Influence
+[01:06:49.132] Server  LOG     ⏭️  Skipping duplicate: Implementation Specialist Spanish Speaking
+[01:06:49.613] Server  LOG     ⏭️  Skipping duplicate: Software Engineering Intern
+[01:06:49.804] Server  LOG     ⏭️  Skipping duplicate: Principal Product Manager
+[01:06:49.843] Server  LOG     ✅ Inserted: Applied AI Engineer at Growth Factory Ventures
+[01:06:50.221] Server  LOG     ⏭️  Skipping duplicate: Product Manager Automotive Vertical
+[01:06:50.526] Server  LOG     ⏭️  Skipping duplicate: Software Engineer I
+[01:06:50.838] Server  LOG     ⏭️  Skipping duplicate: Machine Learning Engineer
+[01:06:50.846] Server  LOG     ✅ Inserted: Product Engineer - Data Modeling at PostHog
+[01:06:51.247] Server  LOG     ⏭️  Skipping duplicate: Clinical Operations Specialist
+[01:06:51.451] Server  LOG     ⏭️  Skipping duplicate: Senior Machine Learning Engineer
+[01:06:51.861] Server  LOG     ⏭️  Skipping duplicate: VP of Engineering Institutional Trading
+[01:06:51.871] Server  LOG     ✅ Inserted: AI Product Engineer at PostHog
+[01:06:52.144] Server  LOG     ⏭️  Skipping duplicate: Customer Solutions Engineer
+[01:06:52.478] Server  LOG     ⏭️  Skipping duplicate: Account Executive SMB India
+[01:06:52.782] Server  LOG     ⏭️  Skipping duplicate: Senior Manager Revenue Operations
+[01:06:52.791] Server  LOG     ✅ Inserted: Experienced Full-Stack Software Engineer (.NET/React), 80–100% (f/m/x), fully remote at comparis.ch
+[01:06:53.084] Server  LOG     ⏭️  Skipping duplicate: Sales Development Representative
+[01:06:53.394] Server  LOG     ⏭️  Skipping duplicate: Staff Developer Advocate Platform Engineering
+[01:06:53.813] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer Analytics
+[01:06:53.816] Server  LOG     ✅ Inserted: Software Engineer, Business Experience at CodeSignal
+[01:06:54.015] Server  LOG     ⏭️  Skipping duplicate: AI Finance Tutor Quantitative Finance
+[01:06:54.196] Server  LOG     ⏭️  Skipping duplicate: Senior Software Engineer Training
+[01:06:54.382] Server  LOG     ⏭️  Skipping duplicate: Machine Learning Engineer 3D Vision&Localization
+[01:06:54.400] Server  LOG     ✅ Inserted: Senior Software Engineer at Stellar AI
+[01:06:54.725] Server  LOG     ⏭️  Skipping duplicate: Senior Quality Engineer
+[01:06:55.033] Server  LOG     ⏭️  Skipping duplicate: Character Artist Clothing NBA 2K
+[01:06:55.344] Server  LOG     ✅ Inserted: Full-Stack Engineer at DynamiCare Health
+[01:06:55.655] Server  LOG     🔗 Source URL: https://remoteOK.com/remote-jobs/remote-character-artist-clothing-nba-2k-visual-concepts-1129590
+[01:06:55.963] Server  ERROR   Error inserting job: {}
+[01:06:55.964] Server  ERROR   ❌ Error processing job Character Artist Clothing NBA 2K: {}
+[01:06:56.364] Server  LOG     ⏭️  Skipping duplicate: Manager Sales Development
+[01:06:56.367] Server  LOG     ✅ Inserted: Senior Fullstack Developer at Zencastr
+[01:06:56.570] Server  LOG     ⏭️  Skipping duplicate: Salesforce Experience Architect AI and Agentforce
+[01:06:56.980] Server  LOG     ⏭️  Skipping duplicate: Associate Customer Success Manager Colombia
+[01:06:57.211] Server  LOG     ⏭️  Skipping duplicate: Marketing Operations Production Specialist
+[01:06:57.214] Server  LOG     ✅ Inserted: Javascript Fullstack Engineer - Senior at Lumenalta
+[01:06:57.537] Server  LOG     ⏭️  Skipping duplicate: Supply Chain Analyst Labor Planning
+[01:06:57.731] Server  LOG     ⏭️  Skipping duplicate: Enterprise Account Executive
+[01:06:57.909] Server  LOG     ⏭️  Skipping duplicate: Account Executive Advisor
+[01:06:57.929] Server  LOG     ✅ Inserted: Senior Independent Software Developer ($90-$170/hr) at A.Team
+[01:06:58.099] Server  LOG     ⏭️  Skipping duplicate: Account Executive Level 2
+[01:06:58.277] Server  LOG     ✨ RemoteOK scrape complete! Inserted 1/95 jobs
+[01:06:58.479] Server  LOG     ✅ Inserted: Senior Shopify Developer (Remote + Flexible) at Storetasker
+[01:06:58.656] Server  LOG     ✨ We Work Remotely scrape complete! Inserted 35/36 jobs
+[01:06:58.658] Server  LOG     ✅ Scraping complete! 56/152 jobs inserted from 3 sources
+[01:10:18.080] Server  LOG     ✓ Compiled in 529ms
+[01:22:17.090] Server  LOG       Reload env: .env.local
+[01:22:19.130] Server  LOG     ✓ Compiled in 1613ms
+[01:22:19.166] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:20.500] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:21.448] Server  LOG       Reload env: .env.local
+[01:22:21.746] Server  LOG     ✓ Compiled in 138ms
+[01:22:21.787] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:22.154] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:24.319] Server  LOG       Reload env: .env.local
+[01:22:24.603] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:25.117] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:28.374] Server  LOG       Reload env: .env.local
+[01:22:28.698] Server  LOG     ✓ Compiled in 148ms
+[01:22:28.702] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:29.265] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:33.996] Server  LOG       Reload env: .env.local
+[01:22:34.386] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:35.020] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:40.165] Server  LOG       Reload env: .env.local
+[01:22:40.449] Server  LOG     ✓ Compiled in 117ms
+[01:22:40.535] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:41.034] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:56.014] Server  LOG       Reload env: .env.local
+[01:22:56.702] Server  LOG     ✓ Compiled in 405ms
+[01:22:56.719] Server  WARN    ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:22:57.654] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:22:58.123] Server  LOG     ✓ Compiled in 261ms
+[01:22:58.137] Browser ERROR   Can't perform a React state update on a component that hasn't mounted yet. This indicates that you have a side-effect in your render function that asynchronously tries to update the component. Move this work to useEffect instead.
+[01:23:51.527] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:24:34.469] Server  LOG     ✓ Compiled in 921ms
+[01:24:55.239] Server  LOG     ✓ Compiled in 317ms
+[01:25:00.606] Server  LOG     ✓ Compiled in 162ms
+[01:45:24.831] Server  ERROR   Error fetching jobs: {}
+[01:45:25.321] Server  ERROR   ⨯ Error: {"message":"TypeError: fetch failed","details":"TypeError: fetch failed\n\nCaused by: SocketError: other side closed (UND_ERR_SOCKET)\nSocketError: other side closed\n    at TLSSocket.<anonymous> (node:internal/deps/undici/undici:6294:28)\n    at TLSSocket.emit (node:events:519:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)","hint":"","code":""}
+[01:45:40.936] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:47:04.773] Server  LOG     🔍 Looking for job with slug: "software-engineer-sticker-mule"
+[01:47:04.803] Server  LOG     🔍 Looking for job with slug: "software-engineer-sticker-mule"
+[01:47:06.462] Server  LOG     ✅ Found job: "Software engineer"
+[01:47:06.462] Server  LOG     ✅ Found job: "Software engineer"
+[01:47:19.528] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[01:47:19.535] Server  LOG     🔍 Looking for job with slug: "customer-support-technician-skyslope"
+[01:47:19.910] Server  LOG     ✅ Found job: "Customer Support Technician"
+[01:47:19.910] Server  LOG     ✅ Found job: "Customer Support Technician"

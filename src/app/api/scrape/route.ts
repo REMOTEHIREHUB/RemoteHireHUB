@@ -1,41 +1,53 @@
 import { NextResponse } from 'next/server'
 import { scrapeRemoteOK } from '@/lib/scrapers/remoteok'
+import { scrapeWeWorkRemotely } from '@/lib/scrapers/weworkremotely'
+import { scrapeRemotive } from '@/lib/scrapers/remotive'
 
-// This API route can be called manually or via cron
-export async function POST(request: Request) {
+// This API route works with Vercel Cron
+export async function GET(request: Request) {
   try {
-    // Optional: Add authentication
+    // Vercel Cron sends a special header
     const authHeader = request.headers.get('authorization')
-    const expectedToken = process.env.SCRAPER_API_KEY || 'your-secret-key'
+    const cronSecret = process.env.CRON_SECRET
     
-    if (authHeader !== `Bearer ${expectedToken}`) {
+    // Check if it's from Vercel Cron OR manual call with API key
+    const isVercelCron = authHeader === `Bearer ${cronSecret}`
+    const isManualCall = authHeader === `Bearer ${process.env.SCRAPER_API_KEY}`
+    
+    if (!isVercelCron && !isManualCall) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
     
-    console.log('🚀 Starting job scraping...')
+    console.log('🚀 Starting job scraping from 3 sources...')
     
-    // Run scrapers
+    // Run all 3 scrapers in parallel for speed!
+    const [remoteoKResult, wwrResult, remotiveResult] = await Promise.all([
+      scrapeRemoteOK(),
+      scrapeWeWorkRemotely(),
+      scrapeRemotive()
+    ])
+    
     const results = {
-      remoteok: await scrapeRemoteOK(),
-      // Add more scrapers here later:
-      // weworkremotely: await scrapeWeWorkRemotely(),
-      // remotive: await scrapeRemotive(),
+      remoteok: remoteoKResult,
+      weworkremotely: wwrResult,
+      remotive: remotiveResult
     }
     
     // Calculate totals
     const totalScraped = Object.values(results).reduce((sum, r) => sum + r.jobsScraped, 0)
     const totalInserted = Object.values(results).reduce((sum, r) => sum + r.jobsInserted, 0)
     
-    console.log(`✅ Scraping complete! ${totalInserted}/${totalScraped} jobs inserted`)
+    console.log(`✅ Scraping complete! ${totalInserted}/${totalScraped} jobs inserted from 3 sources`)
     
     return NextResponse.json({
       success: true,
       totalScraped,
       totalInserted,
-      results
+      results,
+      timestamp: new Date().toISOString()
     })
     
   } catch (error) {
@@ -51,10 +63,7 @@ export async function POST(request: Request) {
   }
 }
 
-// GET endpoint for testing (remove in production)
-export async function GET() {
-  return NextResponse.json({
-    message: 'Job scraper API. Use POST with authorization header to run scraper.',
-    example: 'curl -X POST http://localhost:3000/api/scrape -H "Authorization: Bearer your-secret-key"'
-  })
+// Keep POST for backward compatibility
+export async function POST(request: Request) {
+  return GET(request)
 }

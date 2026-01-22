@@ -1,38 +1,31 @@
 import { JobCard } from './JobCard'
 import type { Job } from '@/types/job'
+import { Search } from 'lucide-react'
 
 interface JobListProps {
   jobs: Job[]
   emptyMessage?: string
 }
 
-export function JobList({ jobs, emptyMessage = "No jobs found matching your criteria." }: JobListProps) {
-  if (jobs.length === 0) {
+export function JobList({ jobs, emptyMessage }: JobListProps) {
+  // Ensure jobs is always an array
+  const jobsArray = Array.isArray(jobs) ? jobs : []
+
+  if (jobsArray.length === 0) {
     return (
-      <div className="text-center py-12">
-        <div className="text-gray-400 mb-4">
-          <svg 
-            className="mx-auto h-12 w-12" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
-            />
-          </svg>
-        </div>
-        <p className="text-gray-600 text-lg">{emptyMessage}</p>
+      <div className="text-center py-20">
+        <Search className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+        <h3 className="text-xl font-semibold text-gray-700 mb-2">No jobs found</h3>
+        <p className="text-gray-500">
+          {emptyMessage || 'No remote jobs available at the moment. Check back soon!'}
+        </p>
       </div>
     )
   }
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {jobs.map((job) => (
+    <div className="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {jobsArray.map((job) => (
         <JobCard key={job.id} job={job} />
       ))}
     </div>
