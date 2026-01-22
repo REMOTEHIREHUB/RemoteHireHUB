@@ -1,7 +1,4 @@
 {
   "/admin/scrapers/page": "app/admin/scrapers/page.js",
-  "/api/scrape/route": "app/api/scrape/route.js",
-  "/page": "app/page.js",
-  "/remote-job/[slug]/page": "app/remote-job/[slug]/page.js",
-  "/remote-jobs/page": "app/remote-jobs/page.js"
+  "/page": "app/page.js"
 }
