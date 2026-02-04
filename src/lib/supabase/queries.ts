@@ -11,8 +11,13 @@ const supabase = createClient(
 // JOB QUERIES
 // =====================================================
 
+// Replace the getJobs function in your src/lib/supabase/queries.ts with this:
+
+// Update your getJobs function in src/lib/supabase/queries.ts
+
 export async function getJobs(filters?: {
-  category?: string
+  category?: string        // slug
+  categoryId?: string      // UUID - more efficient!
   search?: string
   jobType?: string
   experienceLevel?: string
@@ -27,8 +32,21 @@ export async function getJobs(filters?: {
     .order('posted_date', { ascending: false })
 
   // Apply filters
-  if (filters?.category) {
-    query = query.eq('category_id', filters.category)
+  // If categoryId is provided, use it directly (most efficient)
+  if (filters?.categoryId) {
+    query = query.eq('category_id', filters.categoryId)
+  } 
+  // Otherwise, if category slug is provided, look it up
+  else if (filters?.category) {
+    const { data: categoryData } = await supabase
+      .from('remote_categories')
+      .select('id')
+      .eq('slug', filters.category)
+      .single()
+    
+    if (categoryData) {
+      query = query.eq('category_id', categoryData.id)
+    }
   }
 
   if (filters?.search) {

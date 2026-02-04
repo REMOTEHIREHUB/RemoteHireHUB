@@ -1,25 +1,54 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // Allow images from Supabase storage and other sources
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**.supabase.co',
-        pathname: '/storage/v1/object/**',
       },
       {
         protocol: 'https',
-        hostname: 'ggkbzkxlnnkibthcthri.supabase.co',
+        hostname: 'remoteok.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'remoteok.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'remotive.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'remotive.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'weworkremotely.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.cloudflare.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'logo.clearbit.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.googleusercontent.com',
+      },
+      // Allow any CDN (common for company logos)
+      {
+        protocol: 'https',
+        hostname: '**',
       },
     ],
-    // Optimize image formats
-    formats: ['image/avif', 'image/webp'],
   },
-  // Enable compression
-  compress: true,
-  // Remove X-Powered-By header for security
-  poweredByHeader: false,
 }
 
 module.exports = nextConfig
