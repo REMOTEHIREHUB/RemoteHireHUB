@@ -14,7 +14,7 @@ interface JobSearchProps {
 export function JobSearch({ 
   onSearch, 
   initialQuery = '',
-  placeholder = "Search by job title, company, or keyword..."
+  placeholder = "Search by job title, company, or keyword.."
 }: JobSearchProps) {
   const [query, setQuery] = useState(initialQuery)
 
