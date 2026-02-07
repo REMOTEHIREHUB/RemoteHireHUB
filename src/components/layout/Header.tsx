@@ -13,7 +13,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/60 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-20 sm:h-24 items-center justify-between">
-          {/* Logo with BIGGER image + CLOSER text */}
+          {/* Logo */}
           <Link 
             href="/" 
             className="flex items-center gap-1 sm:gap-2 hover:opacity-90 transition-all duration-300 group flex-shrink-0"
@@ -29,7 +29,6 @@ export function Header() {
                 className="h-16 w-auto sm:h-20 md:h-24 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            {/* Exact gradient from logo: Blue + Green */}
             <span className="text-xl sm:text-2xl md:text-3xl font-bold hidden sm:inline">
               <span className="text-blue-600">RemoteHire</span>
               <span className="text-green-600">Hub</span>
@@ -55,15 +54,22 @@ export function Header() {
               </button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                 <div className="p-3">
-                  <Link href="/remote-software-development-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">💻 Software Dev</Link>
-                  <Link href="/remote-design-creative-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">🎨 Design</Link>
-                  <Link href="/remote-marketing-growth-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">📊 Marketing</Link>
-                  <Link href="/remote-customer-support-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">🎧 Support</Link>
-                  <Link href="/remote-writing-content-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">📝 Writing</Link>
+                  <Link href="/software-development-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">💻 Software Dev</Link>
+                  <Link href="/design-creative-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">🎨 Design</Link>
+                  <Link href="/marketing-growth-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">📊 Marketing</Link>
+                  <Link href="/customer-support-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">🎧 Support</Link>
+                  <Link href="/writing-content-jobs" className="block px-3 py-2 rounded hover:bg-gray-50">📝 Writing</Link>
                   <Link href="/remote-jobs" className="block px-3 py-2 rounded hover:bg-gray-50 text-blue-600 font-medium mt-2 border-t">View All →</Link>
                 </div>
               </div>
             </div>
+
+            <Link 
+              href="/blog" 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 text-[15px] hover:underline decoration-2 underline-offset-4"
+            >
+              Blog
+            </Link>
 
             <Link 
               href="/" 
@@ -126,39 +132,47 @@ export function Header() {
               >
                 🔍 Find Jobs
               </Link>
+
+              <Link 
+                href="/blog" 
+                className="text-gray-700 hover:text-blue-600 font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                📝 Blog
+              </Link>
               
               <div className="border-t border-gray-200 pt-3">
                 <p className="text-xs font-semibold text-gray-500 px-3 mb-2">CATEGORIES</p>
                 <Link 
-                  href="/remote-software-development-jobs" 
+                  href="/software-development-jobs" 
                   className="text-gray-700 hover:text-blue-600 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   💻 Software Development
                 </Link>
                 <Link 
-                  href="/remote-design-creative-jobs" 
+                  href="/design-creative-jobs" 
                   className="text-gray-700 hover:text-blue-600 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   🎨 Design & Creative
                 </Link>
                 <Link 
-                  href="/remote-marketing-growth-jobs" 
+                  href="/marketing-growth-jobs" 
                   className="text-gray-700 hover:text-blue-600 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   📊 Marketing & Growth
                 </Link>
                 <Link 
-                  href="/remote-customer-support-jobs" 
+                  href="/customer-support-jobs" 
                   className="text-gray-700 hover:text-blue-600 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   🎧 Customer Support
                 </Link>
                 <Link 
-                  href="/remote-writing-content-jobs" 
+                  href="/writing-content-jobs" 
                   className="text-gray-700 hover:text-blue-600 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
