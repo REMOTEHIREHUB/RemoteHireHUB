@@ -2,15 +2,15 @@ import { NextResponse } from 'next/server'
 import { scrapeRemoteOK } from '@/lib/scrapers/remoteok'
 import { scrapeWeWorkRemotely } from '@/lib/scrapers/weworkremotely'
 import { scrapeRemotive } from '@/lib/scrapers/remotive'
+import { scrapeGreenhouse } from '@/lib/scrapers/greenhouse'
+import { scrapeLever } from '@/lib/scrapers/lever'
 
 // This API route works with Vercel Cron
 export async function GET(request: Request) {
   try {
-    // Vercel Cron sends a special header
     const authHeader = request.headers.get('authorization')
     const cronSecret = process.env.CRON_SECRET
     
-    // Check if it's from Vercel Cron OR manual call with API key
     const isVercelCron = authHeader === `Bearer ${cronSecret}`
     const isManualCall = authHeader === `Bearer ${process.env.SCRAPER_API_KEY}`
     
@@ -21,26 +21,32 @@ export async function GET(request: Request) {
       )
     }
     
-    console.log('🚀 Starting job scraping from 3 sources...')
+    console.log('🚀 Starting job scraping from 5 sources...')
     
-    // Run all 3 scrapers in parallel for speed!
+    // Run fast scrapers in parallel first
     const [remoteoKResult, wwrResult, remotiveResult] = await Promise.all([
       scrapeRemoteOK(),
       scrapeWeWorkRemotely(),
       scrapeRemotive()
     ])
+
+    // Run Greenhouse and Lever sequentially after 
+    // (they loop through many companies - running in parallel would be too aggressive)
+    const greenhouseResult = await scrapeGreenhouse()
+    const leverResult = await scrapeLever()
     
     const results = {
       remoteok: remoteoKResult,
       weworkremotely: wwrResult,
-      remotive: remotiveResult
+      remotive: remotiveResult,
+      greenhouse: greenhouseResult,
+      lever: leverResult,
     }
     
-    // Calculate totals
     const totalScraped = Object.values(results).reduce((sum, r) => sum + r.jobsScraped, 0)
     const totalInserted = Object.values(results).reduce((sum, r) => sum + r.jobsInserted, 0)
     
-    console.log(`✅ Scraping complete! ${totalInserted}/${totalScraped} jobs inserted from 3 sources`)
+    console.log(`✅ Scraping complete! ${totalInserted}/${totalScraped} jobs inserted from 5 sources`)
     
     return NextResponse.json({
       success: true,
@@ -63,7 +69,6 @@ export async function GET(request: Request) {
   }
 }
 
-// Keep POST for backward compatibility
 export async function POST(request: Request) {
   return GET(request)
 }

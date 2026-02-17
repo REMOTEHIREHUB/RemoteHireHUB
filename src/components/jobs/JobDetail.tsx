@@ -8,7 +8,16 @@ import { formatDistanceToNow, format } from 'date-fns'
 interface JobDetailProps {
   job: Job
 }
-
+function decodeHtml(html: string): string {
+  if (!html) return ''
+  return html
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+}
 export function JobDetail({ job }: JobDetailProps) {
   const formatSalary = () => {
     if (!job.salary_min && !job.salary_max) return null
@@ -146,7 +155,7 @@ export function JobDetail({ job }: JobDetailProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="prose prose-lg max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: job.description }} />
+          <div dangerouslySetInnerHTML={{ __html: decodeHtml(job.description) }} />
         </CardContent>
       </Card>
 
@@ -160,7 +169,7 @@ export function JobDetail({ job }: JobDetailProps) {
             </CardTitle>
           </CardHeader>
           <CardContent className="prose prose-lg max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: job.requirements }} />
+            <div dangerouslySetInnerHTML={{ __html: decodeHtml(job.requirements) }} />
           </CardContent>
         </Card>
       )}
@@ -175,7 +184,7 @@ export function JobDetail({ job }: JobDetailProps) {
             </CardTitle>
           </CardHeader>
           <CardContent className="prose prose-lg max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: job.responsibilities }} />
+            <div dangerouslySetInnerHTML={{ __html: decodeHtml(job.responsibilities) }} />
           </CardContent>
         </Card>
       )}
@@ -191,7 +200,7 @@ export function JobDetail({ job }: JobDetailProps) {
           <CardContent>
             {job.benefits && (
               <div className="prose prose-lg max-w-none mb-4">
-                <div dangerouslySetInnerHTML={{ __html: job.benefits }} />
+               <div dangerouslySetInnerHTML={{ __html: decodeHtml(job.benefits) }} />
               </div>
             )}
             <div className="flex flex-wrap gap-3">

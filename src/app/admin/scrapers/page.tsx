@@ -7,6 +7,14 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Loader2, PlayCircle, CheckCircle, XCircle, Lock } from 'lucide-react'
 
+const SOURCE_CONFIG = [
+  { key: 'remoteok',       label: 'RemoteOK',          color: 'blue',   dot: 'bg-blue-600',   border: 'border-blue-200'   },
+  { key: 'weworkremotely', label: 'We Work Remotely',  color: 'purple', dot: 'bg-purple-600', border: 'border-purple-200' },
+  { key: 'remotive',       label: 'Remotive',          color: 'orange', dot: 'bg-orange-600', border: 'border-orange-200' },
+  { key: 'greenhouse',     label: 'Greenhouse',        color: 'green',  dot: 'bg-green-600',  border: 'border-green-200'  },
+  { key: 'lever',          label: 'Lever',             color: 'rose',   dot: 'bg-rose-600',   border: 'border-rose-200'   },
+]
+
 export default function AdminScraperPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState('')
@@ -17,13 +25,9 @@ export default function AdminScraperPage() {
   const [error, setError] = useState<string | null>(null)
   const [apiKey, setApiKey] = useState('')
 
-  // Handle password login
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Simple password check (you can change this password in .env.local)
     const correctPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'admin123'
-    
     if (password === correctPassword) {
       setIsAuthenticated(true)
       setAuthError(false)
@@ -46,9 +50,7 @@ export default function AdminScraperPage() {
     try {
       const response = await fetch('/api/scrape', {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${apiKey}`
-        }
+        headers: { 'Authorization': `Bearer ${apiKey}` }
       })
 
       const data = await response.json()
@@ -75,9 +77,7 @@ export default function AdminScraperPage() {
               <Lock className="h-8 w-8 text-blue-600" />
             </div>
             <CardTitle className="text-2xl font-bold">Admin Access Required</CardTitle>
-            <p className="text-gray-600 mt-2">
-              Enter password to access the scraper admin panel
-            </p>
+            <p className="text-gray-600 mt-2">Enter password to access the scraper admin panel</p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
@@ -93,13 +93,11 @@ export default function AdminScraperPage() {
                   autoFocus
                 />
               </div>
-              
               {authError && (
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                   <p className="text-red-700 text-sm">❌ Incorrect password. Please try again.</p>
                 </div>
               )}
-              
               <Button 
                 type="submit" 
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
@@ -108,8 +106,6 @@ export default function AdminScraperPage() {
                 <Lock className="mr-2 h-4 w-4" />
                 Login
               </Button>
-
-             
             </form>
           </CardContent>
         </Card>
@@ -117,11 +113,12 @@ export default function AdminScraperPage() {
     )
   }
 
-  // Main Admin Panel (only shown after authentication)
+  // Main Admin Panel
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
       <div className="container mx-auto px-4 max-w-4xl">
-        {/* Logout Button */}
+
+        {/* Logout */}
         <div className="flex justify-end mb-4">
           <Button
             variant="outline"
@@ -144,10 +141,11 @@ export default function AdminScraperPage() {
               🔧 Job Scraper Admin
             </CardTitle>
             <p className="text-gray-600 mt-2">
-              Manually trigger the job scraper to fetch latest remote jobs from 3 sources
+              Manually trigger the job scraper to fetch latest remote jobs from 5 sources
             </p>
           </CardHeader>
           <CardContent className="space-y-6">
+
             {/* API Key Input */}
             <div>
               <Label htmlFor="apiKey">API Key</Label>
@@ -174,7 +172,7 @@ export default function AdminScraperPage() {
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Scraping Jobs from 3 Sources...
+                  Scraping Jobs from 5 Sources...
                 </>
               ) : (
                 <>
@@ -186,9 +184,18 @@ export default function AdminScraperPage() {
 
             {/* Loading State */}
             {loading && (
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <p className="text-blue-800 text-sm">
-                  ⏳ Fetching jobs from RemoteOK, We Work Remotely, and Remotive... This may take 2-3 minutes
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
+                <p className="text-blue-800 text-sm font-medium">
+                  ⏳ Scraping in progress...
+                </p>
+                <p className="text-blue-700 text-xs">
+                  Step 1: RemoteOK, We Work Remotely, Remotive (parallel)
+                </p>
+                <p className="text-blue-700 text-xs">
+                  Step 2: Greenhouse (50 companies) + Lever (50 companies)
+                </p>
+                <p className="text-blue-700 text-xs font-medium">
+                  This may take 3-5 minutes — please don't close this page!
                 </p>
               </div>
             )}
@@ -214,11 +221,11 @@ export default function AdminScraperPage() {
                   <div>
                     <p className="font-semibold text-green-800 text-lg">Scraper Completed!</p>
                     <p className="text-green-700 text-sm mt-1">
-                      Scraped from 3 sources simultaneously
+                      Successfully scraped from 5 sources
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Total Stats */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="bg-white rounded-lg p-4 border border-green-200">
@@ -231,126 +238,59 @@ export default function AdminScraperPage() {
                   </div>
                 </div>
 
-                {/* Individual Source Results */}
+                {/* Per-source breakdown */}
+                <p className="font-semibold text-gray-800 text-lg mb-3">📊 Source Breakdown:</p>
                 <div className="space-y-4">
-                  <p className="font-semibold text-gray-800 text-lg mb-3">📊 Source Breakdown:</p>
-                  
-                  {/* RemoteOK */}
-                  {result.results?.remoteok && (
-                    <div className="bg-white rounded-lg p-4 border-2 border-blue-200">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full bg-blue-600"></div>
-                          <p className="font-semibold text-gray-800">RemoteOK</p>
+                  {SOURCE_CONFIG.map(({ key, label, dot, border }) => {
+                    const source = result.results?.[key]
+                    if (!source) return null
+                    return (
+                      <div key={key} className={`bg-white rounded-lg p-4 border-2 ${border}`}>
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <div className={`w-3 h-3 rounded-full ${dot}`}></div>
+                            <p className="font-semibold text-gray-800">{label}</p>
+                          </div>
+                          <span className={`px-2 py-1 rounded text-xs font-medium ${
+                            source.success
+                              ? 'bg-green-100 text-green-700'
+                              : 'bg-red-100 text-red-700'
+                          }`}>
+                            {source.success ? '✓ Success' : '✗ Failed'}
+                          </span>
                         </div>
-                        <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          result.results.remoteok.success 
-                            ? 'bg-green-100 text-green-700' 
-                            : 'bg-red-100 text-red-700'
-                        }`}>
-                          {result.results.remoteok.success ? '✓ Success' : '✗ Failed'}
-                        </span>
+                        <div className="grid grid-cols-3 gap-3 text-sm">
+                          <div>
+                            <p className="text-gray-600">Scraped</p>
+                            <p className="font-bold text-lg">{source.jobsScraped}</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-600">Inserted</p>
+                            <p className="font-bold text-lg text-green-600">{source.jobsInserted}</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-600">Duplicates</p>
+                            <p className="font-bold text-lg text-gray-500">
+                              {source.jobsScraped - source.jobsInserted}
+                            </p>
+                          </div>
+                        </div>
+                        {source.error && (
+                          <p className="text-red-600 text-xs mt-2">⚠️ {source.error}</p>
+                        )}
                       </div>
-                      <div className="grid grid-cols-3 gap-3 text-sm">
-                        <div>
-                          <p className="text-gray-600">Scraped</p>
-                          <p className="font-bold text-lg">{result.results.remoteok.jobsScraped}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-600">Inserted</p>
-                          <p className="font-bold text-lg text-green-600">{result.results.remoteok.jobsInserted}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-600">Duplicates</p>
-                          <p className="font-bold text-lg text-gray-500">
-                            {result.results.remoteok.jobsScraped - result.results.remoteok.jobsInserted}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* We Work Remotely */}
-                  {result.results?.weworkremotely && (
-                    <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full bg-purple-600"></div>
-                          <p className="font-semibold text-gray-800">We Work Remotely</p>
-                        </div>
-                        <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          result.results.weworkremotely.success 
-                            ? 'bg-green-100 text-green-700' 
-                            : 'bg-red-100 text-red-700'
-                        }`}>
-                          {result.results.weworkremotely.success ? '✓ Success' : '✗ Failed'}
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-3 text-sm">
-                        <div>
-                          <p className="text-gray-600">Scraped</p>
-                          <p className="font-bold text-lg">{result.results.weworkremotely.jobsScraped}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-600">Inserted</p>
-                          <p className="font-bold text-lg text-green-600">{result.results.weworkremotely.jobsInserted}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-600">Duplicates</p>
-                          <p className="font-bold text-lg text-gray-500">
-                            {result.results.weworkremotely.jobsScraped - result.results.weworkremotely.jobsInserted}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Remotive */}
-                  {result.results?.remotive && (
-                    <div className="bg-white rounded-lg p-4 border-2 border-orange-200">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full bg-orange-600"></div>
-                          <p className="font-semibold text-gray-800">Remotive</p>
-                        </div>
-                        <span className={`px-2 py-1 rounded text-xs font-medium ${
-                          result.results.remotive.success 
-                            ? 'bg-green-100 text-green-700' 
-                            : 'bg-red-100 text-red-700'
-                        }`}>
-                          {result.results.remotive.success ? '✓ Success' : '✗ Failed'}
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-3 text-sm">
-                        <div>
-                          <p className="text-gray-600">Scraped</p>
-                          <p className="font-bold text-lg">{result.results.remotive.jobsScraped}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-600">Inserted</p>
-                          <p className="font-bold text-lg text-green-600">{result.results.remotive.jobsInserted}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-600">Duplicates</p>
-                          <p className="font-bold text-lg text-gray-500">
-                            {result.results.remotive.jobsScraped - result.results.remotive.jobsInserted}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                    )
+                  })}
                 </div>
 
                 {/* View Jobs Button */}
                 <div className="mt-6">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     asChild
                     className="w-full border-2 hover:border-green-600 hover:text-green-600 h-12"
                   >
-                    <a href="/remote-jobs">
-                      View All Jobs →
-                    </a>
+                    <a href="/remote-jobs">View All Jobs →</a>
                   </Button>
                 </div>
               </div>
@@ -360,15 +300,15 @@ export default function AdminScraperPage() {
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <p className="text-sm text-gray-700 font-semibold mb-2">ℹ️ How it works:</p>
               <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                <li>Fetches latest jobs from 3 sources simultaneously</li>
-                <li>RemoteOK: ~90 jobs</li>
-                <li>We Work Remotely: ~50-75 jobs</li>
-                <li>Remotive: ~40-60 jobs</li>
-                <li>Automatically detects categories</li>
-                <li>Skips duplicates (already in database)</li>
+                <li>RemoteOK, We Work Remotely & Remotive run in parallel</li>
+                <li>Greenhouse: 50 remote-friendly companies via official API</li>
+                <li>Lever: 50 remote-friendly companies via official API</li>
+                <li>Automatically detects job categories</li>
+                <li>Skips duplicates already in the database</li>
                 <li>Vercel cron also runs daily at 2:00 AM UTC</li>
               </ul>
             </div>
+
           </CardContent>
         </Card>
       </div>

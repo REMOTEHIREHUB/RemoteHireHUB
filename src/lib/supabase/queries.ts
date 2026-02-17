@@ -25,10 +25,10 @@ export async function getJobs(filters?: {
   limit?: number
   offset?: number
 }) {
-  let query = supabase
+  
+let query = supabase
     .from('jobs')
-    .select('*')
-    .eq('is_active', true)
+    .select('*', { count: 'exact' })
     .order('posted_date', { ascending: false })
 
   // Apply filters
@@ -63,17 +63,6 @@ export async function getJobs(filters?: {
 
   if (filters?.locationRestriction) {
     query = query.eq('location_restriction', filters.locationRestriction)
-  }
-
-  if (filters?.limit) {
-    query = query.limit(filters.limit)
-  }
-
-  if (filters?.offset) {
-    query = query.range(
-      filters.offset, 
-      filters.offset + (filters.limit || 10) - 1
-    )
   }
 
   const { data, error } = await query
