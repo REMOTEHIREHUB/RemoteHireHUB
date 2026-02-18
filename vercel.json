@@ -7,8 +7,24 @@
   ],
   "crons": [
     {
-      "path": "/api/scrape",
+      "path": "/api/scrape/remoteok",
       "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/scrape/weworkremotely",
+      "schedule": "5 2 * * *"
+    },
+    {
+      "path": "/api/scrape/remotive",
+      "schedule": "10 2 * * *"
+    },
+    {
+      "path": "/api/scrape/greenhouse",
+      "schedule": "15 2 * * *"
+    },
+    {
+      "path": "/api/scrape/lever",
+      "schedule": "25 2 * * *"
     }
   ]
 }
