@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import { Search, TrendingUp, Globe, Zap, ArrowRight, Sparkles, Users } from 'lucide-react'
+import { TrendingUp, Globe, Zap, ArrowRight, Sparkles, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 import { JobList } from '@/components/jobs/JobList'
 import { getJobs, getCategories } from '@/lib/supabase/queries'
 import type { Category } from '@/types/category'
 import { CategoryCard } from '@/components/categories/CategoryCard'
+import { HomeSearchBar } from '@/components/home/HomeSearchBar'
 
 export default async function HomePage() {
   // Fetch latest jobs and categories
@@ -41,19 +41,8 @@ export default async function HomePage() {
               Discover remote opportunities from <span className="font-semibold text-gray-800">100+ companies worldwide</span>. Work from anywhere. 🌍
             </p>
             
-            {/* Search Bar - Stack on mobile */}
-            <div className="flex flex-col gap-3 max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 px-4 sm:px-0">
-              <Input 
-                placeholder="Job title, keyword, or company..." 
-                className="h-12 sm:h-14 text-sm sm:text-base border-2 border-gray-200 focus:border-blue-500 bg-white shadow-lg"
-              />
-              <Button size="lg" asChild className="h-12 sm:h-14 px-6 sm:px-8 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg text-sm sm:text-base">
-                <Link href="/remote-jobs">
-                  <Search className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  Search Jobs
-                </Link>
-              </Button>
-            </div>
+            {/* Search Bar - functional, navigates with query */}
+            <HomeSearchBar />
 
             {/* Quick Stats - Mobile optimized */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-12 max-w-3xl mx-auto px-4 sm:px-0">

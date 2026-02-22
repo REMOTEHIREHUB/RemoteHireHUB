@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { JobList } from '@/components/jobs/JobList'
 import { JobFilters, FilterState } from '../admin/jobs/JobFilters'
 import { JobSearch } from '../admin/jobs/JobSearch'
@@ -14,7 +15,8 @@ interface RemoteJobsClientProps {
 }
 
 export function RemoteJobsClient({ initialJobs }: RemoteJobsClientProps) {
-  const [searchQuery, setSearchQuery] = useState('')
+  const searchParams = useSearchParams()
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '')
   const [filters, setFilters] = useState<FilterState>({
     jobTypes: [],
     experienceLevels: [],
@@ -111,7 +113,7 @@ export function RemoteJobsClient({ initialJobs }: RemoteJobsClientProps) {
 
         {/* Search Bar */}
         <div className="mb-8">
-          <JobSearch onSearch={setSearchQuery} initialQuery={searchQuery} />
+          <JobSearch onSearch={setSearchQuery} initialQuery={searchParams.get('q') ?? ''} />
         </div>
 
         {/* Mobile Filter Toggle */}
