@@ -7,23 +7,23 @@ import { Footer } from '@/components/layout/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'RemoteHireHub - Find Remote Jobs Worldwide',
+  title: 'RemoteHubHire - Find Remote Jobs Worldwide',
   description: 'Discover remote job opportunities from top companies. Software, marketing, design, customer support & more. Work from anywhere.',
   keywords: ['remote jobs', 'work from home', 'remote work', 'online jobs', 'telecommute', 'remote careers'],
   
   // Open Graph / Social Media
   openGraph: {
-    title: 'RemoteHireHub - Find Remote Jobs Worldwide',
+    title: 'RemoteHubHire - Find Remote Jobs Worldwide',
     description: 'Discover remote job opportunities from top companies worldwide.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'RemoteHireHub',
+    siteName: 'RemoteHubHire',
   },
   
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'RemoteHireHub - Find Remote Jobs Worldwide',
+    title: 'RemoteHubHire - Find Remote Jobs Worldwide',
     description: 'Discover remote job opportunities from top companies worldwide.',
   },
   

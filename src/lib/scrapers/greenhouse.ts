@@ -70,7 +70,7 @@ export async function scrapeGreenhouse(): Promise<{
         const response = await fetch(
           `https://boards-api.greenhouse.io/v1/boards/${company}/jobs?content=true`,
           {
-            headers: { 'User-Agent': 'RemoteHireHub Job Aggregator' }
+            headers: { 'User-Agent': 'RemoteHubHire Job Aggregator' }
           }
         )
 

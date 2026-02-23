@@ -13,8 +13,8 @@ export function Footer() {
             <Link href="/" className="inline-block mb-4 sm:mb-6">
               {/* Exact gradient from logo: Blue to Green */}
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                <span className="text-blue-500">RemoteHire</span>
-                <span className="text-green-500">Hub</span>
+                <span className="text-blue-500">RemoteHub</span>
+                <span className="text-green-500">Hire</span>
               </div>
             </Link>
             <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-4 sm:mb-6">
@@ -165,7 +165,7 @@ export function Footer() {
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-center sm:text-left">
             <p className="text-xs sm:text-sm text-gray-400">
-              © {currentYear} RemoteHireHub. All rights reserved.
+              © {currentYear} RemoteHubHire. All rights reserved.
             </p>
             <p className="text-xs sm:text-sm text-gray-400">
               Built with ❤️ for remote workers worldwide 🌍

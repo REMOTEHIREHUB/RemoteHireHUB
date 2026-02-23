@@ -25,7 +25,7 @@ async function getBlogPosts() {
 }
 
 export const metadata = {
-  title: 'Blog | RemoteHireHub',
+  title: 'Blog | RemoteHubHire',
   description: 'Read the latest insights on remote work, career tips, and job hunting strategies.',
 }
 

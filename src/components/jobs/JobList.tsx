@@ -8,7 +8,6 @@ interface JobListProps {
 }
 
 export function JobList({ jobs, emptyMessage }: JobListProps) {
-  // Ensure jobs is always an array
   const jobsArray = Array.isArray(jobs) ? jobs : []
 
   if (jobsArray.length === 0) {
@@ -24,7 +23,8 @@ export function JobList({ jobs, emptyMessage }: JobListProps) {
   }
 
   return (
-    <div className="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+    // Single column on mobile, 2 cols on sm, 3 on lg (matches parent col-span-3)
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
       {jobsArray.map((job) => (
         <JobCard key={job.id} job={job} />
       ))}

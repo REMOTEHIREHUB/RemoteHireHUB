@@ -40,7 +40,7 @@ export async function scrapeRemotive(): Promise<{
     // Remotive has a public JSON API
     const response = await fetch('https://remotive.com/api/remote-jobs', {
       headers: {
-        'User-Agent': 'RemoteHireHub Job Aggregator'
+        'User-Agent': 'RemoteHubHire Job Aggregator'
       }
     })
     

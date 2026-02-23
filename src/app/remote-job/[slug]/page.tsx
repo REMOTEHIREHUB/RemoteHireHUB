@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: JobPageProps): Promise<Metada
       : ''
 
     return {
-      title: `${job.title} at ${job.company} - Remote Job | RemoteHireHub`,
-      description: job.meta_description || `${job.title} position at ${job.company}. ${job.location}. ${salary} ${job.job_type}. Apply now on RemoteHireHub.`,
+      title: `${job.title} at ${job.company} - Remote Job | RemoteHubHire`,
+      description: job.meta_description || `${job.title} position at ${job.company}. ${job.location}. ${salary} ${job.job_type}. Apply now on RemoteHubHire.`,
       keywords: [
         'remote job',
         job.title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: JobPageProps): Promise<Metada
     }
   } catch {
     return {
-      title: 'Job Not Found - RemoteHireHub',
+      title: 'Job Not Found - RemoteHubHire',
     }
   }
 }
@@ -75,7 +75,7 @@ export default async function JobPage({ params }: JobPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-blue-50/20 to-white">
       {/* Main container — pb-28 on mobile to clear the sticky apply bar */}
-      <div className="container mx-auto px-4 py-8 pb-28 lg:pb-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 lg:py-8 pb-28 lg:pb-8">
 
         {/* Back Button */}
         <Button
@@ -89,14 +89,56 @@ export default async function JobPage({ params }: JobPageProps) {
           </Link>
         </Button>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 min-w-0">
             <JobDetail job={job} />
+
+            {/* ── Mobile-only: Share + Similar Jobs ── */}
+            <div className="lg:hidden mt-5 space-y-5">
+
+              {/* Share compact */}
+              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+                <p className="text-sm font-bold text-gray-900 mb-3">Share This Job</p>
+                <ShareButtons jobTitle={job.title} jobCompany={job.company} />
+              </div>
+
+              {/* Similar Jobs — horizontal scroll cards */}
+              {similarJobs.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Briefcase className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-sm font-bold text-gray-900">Similar Remote Jobs</p>
+                  </div>
+                  <div className="-mx-4 px-4 overflow-x-auto">
+                    <div className="flex gap-3 pb-2 w-max">
+                      {similarJobs.map((sj) => (
+                        <Link key={sj.id} href={`/remote-job/${sj.slug}`} className="flex-shrink-0 w-52 block group">
+                          <div className="bg-white border border-gray-200 rounded-xl p-3.5 hover:border-blue-400 transition-all">
+                            <p className="text-[11px] font-semibold text-gray-400 mb-1 truncate">{sj.company}</p>
+                            <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 line-clamp-2 mb-2.5 leading-snug">{sj.title}</h4>
+                            <div className="flex items-center justify-between">
+                              <Badge variant="secondary" className="text-[10px] rounded-full px-2">{sj.job_type}</Badge>
+                              <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                                <Clock className="h-2.5 w-2.5" />
+                                {formatDistanceToNow(new Date(sj.posted_date), { addSuffix: true })}
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  <Link href="/remote-jobs" className="block text-center text-sm text-blue-600 font-semibold mt-3 hover:underline">
+                    View All Jobs →
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Sidebar */}
-          <aside className="lg:col-span-1">
+          {/* Sidebar — desktop only */}
+          <aside className="hidden lg:block lg:col-span-1">
             <div className="sticky top-24 space-y-5">
 
               {/* Job Source Info */}

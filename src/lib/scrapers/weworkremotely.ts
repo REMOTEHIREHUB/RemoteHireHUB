@@ -34,7 +34,7 @@ export async function scrapeWeWorkRemotely(): Promise<{
     // We Work Remotely has an RSS feed
     const response = await fetch('https://weworkremotely.com/categories/remote-full-stack-programming-jobs.rss', {
       headers: {
-        'User-Agent': 'RemoteHireHub Job Aggregator'
+        'User-Agent': 'RemoteHubHire Job Aggregator'
       }
     })
     

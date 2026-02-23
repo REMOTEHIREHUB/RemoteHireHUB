@@ -96,7 +96,7 @@ export async function scrapeLever(): Promise<{
         const response = await fetch(
           `https://api.lever.co/v0/postings/${company}?mode=json`,
           {
-            headers: { 'User-Agent': 'RemoteHireHub Job Aggregator' }
+            headers: { 'User-Agent': 'RemoteHubHire Job Aggregator' }
           }
         )
 

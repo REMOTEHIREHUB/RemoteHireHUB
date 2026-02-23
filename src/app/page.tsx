@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { unstable_cache } from 'next/cache'
 import { TrendingUp, Globe, Zap, ArrowRight, Sparkles, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -8,12 +9,15 @@ import type { Category } from '@/types/category'
 import { CategoryCard } from '@/components/categories/CategoryCard'
 import { HomeSearchBar } from '@/components/home/HomeSearchBar'
 
+// Cache home page data for 5 minutes
+const getCachedHomeData = unstable_cache(
+  async () => Promise.all([getJobs({ limit: 6 }), getCategories()]),
+  ['home-page-data'],
+  { revalidate: 300 }
+)
+
 export default async function HomePage() {
-  // Fetch latest jobs and categories
-  const [latestJobs, categories] = await Promise.all([
-    getJobs({ limit: 6 }),
-    getCategories()
-  ])
+  const [latestJobs, categories] = await getCachedHomeData()
 
   return (
     <div>
@@ -112,7 +116,7 @@ export default async function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-10 md:mb-14">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">
-              Why RemoteHireHub?
+              Why RemoteHubHire?
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">
               The best platform for finding remote work
@@ -183,7 +187,7 @@ export default async function HomePage() {
               Join the Remote Work Revolution
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
-              Thousands of professionals have found their dream remote jobs through RemoteHireHub. You could be next!
+              Thousands of professionals have found their dream remote jobs through RemoteHubHire. You could be next!
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Button size="lg" asChild className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg h-12 sm:h-14 px-6 sm:px-8">

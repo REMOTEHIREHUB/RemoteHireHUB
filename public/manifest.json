@@ -1,6 +1,6 @@
 {
-  "name": "RemoteHireHub",
-  "short_name": "RemoteHireHub",
+  "name": "RemoteHubHire",
+  "short_name": "RemoteHubHire",
   "description": "Find remote job opportunities from companies worldwide",
   "start_url": "/",
   "display": "standalone",

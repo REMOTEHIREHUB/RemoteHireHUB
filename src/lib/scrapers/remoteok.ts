@@ -42,7 +42,7 @@ export async function scrapeRemoteOK(): Promise<{
     // RemoteOK has a public JSON API
     const response = await fetch('https://remoteok.com/api', {
       headers: {
-        'User-Agent': 'RemoteHireHub Job Aggregator'
+        'User-Agent': 'RemoteHubHire Job Aggregator'
       }
     })
     

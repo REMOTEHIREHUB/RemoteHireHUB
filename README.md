@@ -60,7 +60,7 @@ npm run dev
 ## Project Structure
 
 ```
-remotehirehub/
+remotehubhire/
 ├── src/
 │   ├── app/                    # Next.js App Router pages
 │   │   ├── remote-jobs/       # Job listings page

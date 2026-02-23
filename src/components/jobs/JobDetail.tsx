@@ -35,7 +35,6 @@ export function JobDetail({ job }: JobDetailProps) {
     if (max) return `Up to ${max}`
   }
 
-  // Derive company initial for avatar
   const companyInitial = job.company?.charAt(0)?.toUpperCase() ?? '?'
 
   const infoItems = [
@@ -51,26 +50,23 @@ export function JobDetail({ job }: JobDetailProps) {
   }[]
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 w-full min-w-0">
 
       {/* ── Hero Header Card ── */}
       <Card className="border-0 shadow-lg overflow-hidden">
-        {/* Colorful top accent strip */}
         <div className="h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
 
-        <CardContent className="p-5 sm:p-7 space-y-5">
+        <CardContent className="p-4 sm:p-7 space-y-5">
 
           {/* Company avatar + badges + title */}
-          <div className="flex items-start gap-4">
-            {/* Company initial avatar */}
-            <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
-              <span className="text-white font-extrabold text-2xl sm:text-3xl leading-none select-none">
+          <div className="flex items-start gap-3 sm:gap-4">
+            <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-md">
+              <span className="text-white font-extrabold text-xl sm:text-3xl leading-none select-none">
                 {companyInitial}
               </span>
             </div>
 
             <div className="flex-1 min-w-0">
-              {/* Remote + featured badges */}
               <div className="flex flex-wrap gap-2 mb-2">
                 <Badge className="bg-emerald-500 hover:bg-emerald-600 text-white border-0 text-xs px-2.5 py-0.5 rounded-full font-semibold">
                   🌍 100% Remote
@@ -82,59 +78,62 @@ export function JobDetail({ job }: JobDetailProps) {
                 )}
               </div>
 
-              {/* Job title */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-gray-900 mb-1.5">
+              <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-gray-900 mb-1.5">
                 <span className="bg-gradient-to-r from-blue-700 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
                   {job.title}
                 </span>
               </h1>
 
-              {/* Company name */}
               <div className="flex items-center gap-2 text-gray-600">
                 <Building2 className="h-4 w-4 text-blue-500 flex-shrink-0" />
-                <span className="font-semibold text-base text-gray-800">{job.company}</span>
+                <span className="font-semibold text-sm sm:text-base text-gray-800 truncate">{job.company}</span>
               </div>
             </div>
           </div>
 
-          {/* Quick-scan info chips — horizontal scroll on mobile */}
-          <div className="flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 sm:-mx-7 sm:px-7 scrollbar-hide">
-            {[
-              { label: job.location,           icon: '📍' },
-              formatSalary() ? { label: formatSalary()!, icon: '💰' } : null,
-              { label: job.job_type,            icon: '💼' },
-              job.experience_level ? { label: job.experience_level, icon: '🏆' } : null,
-              job.location_restriction ? { label: job.location_restriction, icon: '🗺️' } : null,
-            ].filter(Boolean).map((chip, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 flex-shrink-0 whitespace-nowrap"
-              >
-                <span className="text-xs">{chip!.icon}</span>
-                <span className="text-xs font-semibold text-gray-700">{chip!.label}</span>
-              </div>
-            ))}
+          {/*
+            Quick-scan info chips — FIXED: replaced negative margins with a
+            wrapper that clips cleanly. overflow-x-auto lives on the inner div.
+          */}
+          <div className="overflow-x-auto -mx-4 sm:-mx-7">
+            <div className="flex gap-2 px-4 sm:px-7 pb-1 w-max min-w-full">
+              {[
+                { label: job.location,           icon: '📍' },
+                formatSalary() ? { label: formatSalary()!, icon: '💰' } : null,
+                { label: job.job_type,            icon: '💼' },
+                job.experience_level ? { label: job.experience_level, icon: '🏆' } : null,
+                job.location_restriction ? { label: job.location_restriction, icon: '🗺️' } : null,
+              ].filter(Boolean).map((chip, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 flex-shrink-0 whitespace-nowrap"
+                >
+                  <span className="text-xs">{chip!.icon}</span>
+                  <span className="text-xs font-semibold text-gray-700">{chip!.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Info cards grid — 2 columns on mobile, 3 on md+ */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {/* Info cards grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
             {infoItems.map((item, i) => (
               <div
                 key={i}
-                className={`flex items-center gap-3 p-3 rounded-xl ${item.bg} transition-colors`}
+                className={`flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl ${item.bg} transition-colors`}
               >
-                <div className={`p-2 ${item.iconBg} rounded-lg flex-shrink-0`}>
-                  <item.icon className={`h-4 w-4 ${item.iconColor}`} />
+                <div className={`p-1.5 sm:p-2 ${item.iconBg} rounded-lg flex-shrink-0`}>
+                  <item.icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${item.iconColor}`} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wide">{item.label}</p>
-                  <p className="text-sm font-bold text-gray-900 leading-tight truncate">{item.value}</p>
+                  <p className="text-[10px] sm:text-[11px] text-gray-500 font-semibold uppercase tracking-wide">{item.label}</p>
+                  <p className="text-xs sm:text-sm font-bold text-gray-900 leading-tight truncate">{item.value}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Tags row — scrollable on mobile */}
+          {/* Tags row */}
           <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-100">
             <Badge variant="secondary" className="rounded-full font-semibold">{job.job_type}</Badge>
             {job.experience_level && (
@@ -145,7 +144,7 @@ export function JobDetail({ job }: JobDetailProps) {
             )}
           </div>
 
-          {/* Apply CTA — full width on mobile */}
+          {/* Apply CTA */}
           <Button
             size="lg"
             className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95 rounded-xl shimmer"
@@ -162,25 +161,29 @@ export function JobDetail({ job }: JobDetailProps) {
       {/* ── Job Description ── */}
       <Card className="border-0 shadow-sm overflow-hidden">
         <div className="h-1 bg-blue-500" />
-        <CardHeader className="pb-2 pt-5 px-5 sm:px-7">
+        <CardHeader className="pb-2 pt-5 px-4 sm:px-7">
           <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl">
-            <div className="p-2 bg-blue-100 rounded-lg">
+            <div className="p-2 bg-blue-100 rounded-lg flex-shrink-0">
               <Zap className="h-5 w-5 text-blue-600" />
             </div>
             <span className="border-l-4 border-blue-500 pl-3">About the Role</span>
           </CardTitle>
         </CardHeader>
-        <CardContent className="px-5 sm:px-7 pb-6">
-          <div
-            className="prose prose-sm sm:prose-base max-w-none
-              prose-headings:font-bold prose-headings:text-gray-900
-              prose-p:text-gray-700 prose-p:leading-relaxed
-              prose-li:text-gray-700 prose-li:leading-relaxed
-              prose-strong:text-gray-900 prose-strong:font-semibold
-              prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
-              prose-ul:space-y-1 prose-ol:space-y-1"
-            dangerouslySetInnerHTML={{ __html: decodeHtml(job.description) }}
-          />
+        <CardContent className="px-4 sm:px-7 pb-6">
+          <div className="overflow-x-auto">
+            <div
+              className="prose prose-sm sm:prose-base max-w-none
+                prose-headings:font-bold prose-headings:text-gray-900
+                prose-p:text-gray-700 prose-p:leading-relaxed
+                prose-li:text-gray-700 prose-li:leading-relaxed
+                prose-strong:text-gray-900 prose-strong:font-semibold
+                prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+                prose-ul:space-y-1 prose-ol:space-y-1
+                prose-table:text-sm prose-td:p-2 prose-th:p-2
+                prose-pre:overflow-x-auto prose-pre:text-xs prose-code:text-xs prose-code:break-all"
+              dangerouslySetInnerHTML={{ __html: decodeHtml(job.description) }}
+            />
+          </div>
         </CardContent>
       </Card>
 
@@ -188,24 +191,27 @@ export function JobDetail({ job }: JobDetailProps) {
       {job.requirements && (
         <Card className="border-0 shadow-sm overflow-hidden">
           <div className="h-1 bg-emerald-500" />
-          <CardHeader className="pb-2 pt-5 px-5 sm:px-7">
+          <CardHeader className="pb-2 pt-5 px-4 sm:px-7">
             <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl">
-              <div className="p-2 bg-emerald-100 rounded-lg">
+              <div className="p-2 bg-emerald-100 rounded-lg flex-shrink-0">
                 <CheckCircle className="h-5 w-5 text-emerald-600" />
               </div>
               <span className="border-l-4 border-emerald-500 pl-3">Requirements</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="px-5 sm:px-7 pb-6">
-            <div
-              className="prose prose-sm sm:prose-base max-w-none
-                prose-headings:font-bold prose-headings:text-gray-900
-                prose-p:text-gray-700 prose-p:leading-relaxed
-                prose-li:text-gray-700 prose-li:leading-relaxed
-                prose-strong:text-gray-900 prose-strong:font-semibold
-                prose-ul:space-y-1 prose-ol:space-y-1"
-              dangerouslySetInnerHTML={{ __html: decodeHtml(job.requirements) }}
-            />
+          <CardContent className="px-4 sm:px-7 pb-6">
+            <div className="overflow-x-auto">
+              <div
+                className="prose prose-sm sm:prose-base max-w-none
+                  prose-headings:font-bold prose-headings:text-gray-900
+                  prose-p:text-gray-700 prose-p:leading-relaxed
+                  prose-li:text-gray-700 prose-li:leading-relaxed
+                  prose-strong:text-gray-900 prose-strong:font-semibold
+                  prose-ul:space-y-1 prose-ol:space-y-1
+                  prose-pre:overflow-x-auto prose-pre:text-xs prose-code:text-xs prose-code:break-all"
+                dangerouslySetInnerHTML={{ __html: decodeHtml(job.requirements) }}
+              />
+            </div>
           </CardContent>
         </Card>
       )}
@@ -214,24 +220,27 @@ export function JobDetail({ job }: JobDetailProps) {
       {job.responsibilities && (
         <Card className="border-0 shadow-sm overflow-hidden">
           <div className="h-1 bg-purple-500" />
-          <CardHeader className="pb-2 pt-5 px-5 sm:px-7">
+          <CardHeader className="pb-2 pt-5 px-4 sm:px-7">
             <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl">
-              <div className="p-2 bg-purple-100 rounded-lg">
+              <div className="p-2 bg-purple-100 rounded-lg flex-shrink-0">
                 <Briefcase className="h-5 w-5 text-purple-600" />
               </div>
               <span className="border-l-4 border-purple-500 pl-3">Responsibilities</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="px-5 sm:px-7 pb-6">
-            <div
-              className="prose prose-sm sm:prose-base max-w-none
-                prose-headings:font-bold prose-headings:text-gray-900
-                prose-p:text-gray-700 prose-p:leading-relaxed
-                prose-li:text-gray-700 prose-li:leading-relaxed
-                prose-strong:text-gray-900 prose-strong:font-semibold
-                prose-ul:space-y-1 prose-ol:space-y-1"
-              dangerouslySetInnerHTML={{ __html: decodeHtml(job.responsibilities) }}
-            />
+          <CardContent className="px-4 sm:px-7 pb-6">
+            <div className="overflow-x-auto">
+              <div
+                className="prose prose-sm sm:prose-base max-w-none
+                  prose-headings:font-bold prose-headings:text-gray-900
+                  prose-p:text-gray-700 prose-p:leading-relaxed
+                  prose-li:text-gray-700 prose-li:leading-relaxed
+                  prose-strong:text-gray-900 prose-strong:font-semibold
+                  prose-ul:space-y-1 prose-ol:space-y-1
+                  prose-pre:overflow-x-auto prose-pre:text-xs prose-code:text-xs prose-code:break-all"
+                dangerouslySetInnerHTML={{ __html: decodeHtml(job.responsibilities) }}
+              />
+            </div>
           </CardContent>
         </Card>
       )}
@@ -240,54 +249,54 @@ export function JobDetail({ job }: JobDetailProps) {
       {(job.benefits || job.has_health_insurance || job.has_401k || job.home_office_stipend || job.offers_visa_sponsorship) && (
         <Card className="border-0 shadow-sm overflow-hidden">
           <div className="h-1 bg-gradient-to-r from-amber-400 to-orange-500" />
-          <CardHeader className="pb-2 pt-5 px-5 sm:px-7">
+          <CardHeader className="pb-2 pt-5 px-4 sm:px-7">
             <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl">
-              <div className="p-2 bg-amber-100 rounded-lg">
+              <div className="p-2 bg-amber-100 rounded-lg flex-shrink-0">
                 <Heart className="h-5 w-5 text-amber-600" />
               </div>
               <span className="border-l-4 border-amber-400 pl-3">Benefits & Perks</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="px-5 sm:px-7 pb-6 space-y-5">
-            {/* Benefit perk pills */}
+          <CardContent className="px-4 sm:px-7 pb-6 space-y-5">
             {(job.has_health_insurance || job.has_401k || job.home_office_stipend || job.offers_visa_sponsorship) && (
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {job.has_health_insurance && (
-                  <div className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 text-center">
-                    <Shield className="h-6 w-6 text-emerald-600" />
+                  <div className="flex flex-col items-center gap-2 p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 text-center">
+                    <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600" />
                     <span className="text-xs font-bold text-emerald-800 leading-tight">Health Insurance</span>
                   </div>
                 )}
                 {job.has_401k && (
-                  <div className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 text-center">
-                    <TrendingUp className="h-6 w-6 text-blue-600" />
+                  <div className="flex flex-col items-center gap-2 p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 text-center">
+                    <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                     <span className="text-xs font-bold text-blue-800 leading-tight">401k / Pension</span>
                   </div>
                 )}
                 {job.offers_visa_sponsorship && (
-                  <div className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-100 text-center">
-                    <Plane className="h-6 w-6 text-purple-600" />
+                  <div className="flex flex-col items-center gap-2 p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-100 text-center">
+                    <Plane className="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" />
                     <span className="text-xs font-bold text-purple-800 leading-tight">Visa Sponsorship</span>
                   </div>
                 )}
                 {job.home_office_stipend && (
-                  <div className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 text-center">
-                    <Home className="h-6 w-6 text-orange-600" />
+                  <div className="flex flex-col items-center gap-2 p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 text-center">
+                    <Home className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
                     <span className="text-xs font-bold text-orange-800 leading-tight">Home Office Stipend</span>
                   </div>
                 )}
               </div>
             )}
-
-            {/* Benefits prose */}
             {job.benefits && (
-              <div
-                className="prose prose-sm sm:prose-base max-w-none
-                  prose-p:text-gray-700 prose-p:leading-relaxed
-                  prose-li:text-gray-700 prose-li:leading-relaxed
-                  prose-strong:text-gray-900"
-                dangerouslySetInnerHTML={{ __html: decodeHtml(job.benefits) }}
-              />
+              <div className="overflow-x-auto">
+                <div
+                  className="prose prose-sm sm:prose-base max-w-none
+                    prose-p:text-gray-700 prose-p:leading-relaxed
+                    prose-li:text-gray-700 prose-li:leading-relaxed
+                    prose-strong:text-gray-900
+                    prose-pre:overflow-x-auto prose-code:text-xs prose-code:break-all"
+                  dangerouslySetInnerHTML={{ __html: decodeHtml(job.benefits) }}
+                />
+              </div>
             )}
           </CardContent>
         </Card>
@@ -297,15 +306,15 @@ export function JobDetail({ job }: JobDetailProps) {
       {job.location_restriction && (
         <Card className="border-0 shadow-sm overflow-hidden">
           <div className="h-1 bg-cyan-500" />
-          <CardHeader className="pb-2 pt-5 px-5 sm:px-7">
+          <CardHeader className="pb-2 pt-5 px-4 sm:px-7">
             <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl">
-              <div className="p-2 bg-cyan-100 rounded-lg">
+              <div className="p-2 bg-cyan-100 rounded-lg flex-shrink-0">
                 <MapPin className="h-5 w-5 text-cyan-600" />
               </div>
               <span className="border-l-4 border-cyan-500 pl-3">Location Details</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="px-5 sm:px-7 pb-6">
+          <CardContent className="px-4 sm:px-7 pb-6">
             <div className="grid sm:grid-cols-2 gap-3">
               <div className="bg-cyan-50 rounded-xl p-4 border border-cyan-100">
                 <p className="text-xs text-cyan-600 font-semibold uppercase tracking-wide mb-1">Geographic Restriction</p>

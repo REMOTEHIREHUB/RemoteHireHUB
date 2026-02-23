@@ -22,7 +22,7 @@ export function Header() {
             <div className="relative">
               <Image
                 src="/images/icon.png"
-                alt="RemoteHireHub"
+                alt="RemoteHubHire"
                 width={320}
                 height={320}
                 priority
@@ -30,8 +30,8 @@ export function Header() {
               />
             </div>
             <span className="text-xl sm:text-2xl md:text-3xl font-bold hidden sm:inline">
-              <span className="text-blue-600">RemoteHire</span>
-              <span className="text-green-600">Hub</span>
+              <span className="text-blue-600">RemoteHub</span>
+              <span className="text-green-600">Hire</span>
             </span>
           </Link>
 
